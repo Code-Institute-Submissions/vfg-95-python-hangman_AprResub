@@ -17,4 +17,4 @@ def play_tornado():
     "\n- You have 5 lives. At 0 the tornado will wipe out the household and it's game over")
     play = input("Press p to play: ")
 
-play_tornado()
+#play_tornado()
