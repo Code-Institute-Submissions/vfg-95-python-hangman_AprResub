@@ -1,4 +1,6 @@
-def play_tornado():
+
+
+def main():
     print("""
          _______  _______  ______    __    _  _______  ______   _______ 
         |       ||       ||    _ |  |  |  | ||   _   ||      | |       |
@@ -17,4 +19,4 @@ def play_tornado():
     "\n- You have 5 lives. At 0 the tornado will wipe out the household and it's game over")
     play = input("Press p to play: ")
 
-#play_tornado()
+#main()
