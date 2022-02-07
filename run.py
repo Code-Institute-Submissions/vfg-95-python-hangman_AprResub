@@ -3,6 +3,10 @@ from words import easy_words, hard_words
 import os, random
 
 def run_game():
+  word = random.choice(easy_words).upper()
+  hidden_word = "_ " * len(word)
+  print(tries[0])
+  print(hidden_word)
 
 def main():
   print("""
