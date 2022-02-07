@@ -1,8 +1,8 @@
 from slides import tries
 from words import easy_words, hard_words
+import os, random
 
 def run_game():
-  print('run game')
 
 def main():
   print("""
