@@ -5,8 +5,17 @@ import os, random
 def run_game():
   word = random.choice(easy_words).upper()
   hidden_word = "_ " * len(word)
+  remaining_guesses = 5
+  guessed_letters = []
+
   print(tries[0])
   print(hidden_word)
+  print(f"\nAlready guessed: {guessed_letters}")
+  print(f"\nRemaining guesses: {remaining_guesses}")
+  guess = input("\nEnter your guess - letter or word: ")
+
+run_game()
+
 
 def main():
   print("""
@@ -27,6 +36,8 @@ def main():
     "\n- You have 5 lives. At 0 the tornado will wipe out the household and it's game over")
   play = input("Press p to play: ")
   if play == 'p':
+    os.system("clear") 
     run_game()
 
-main()
+
+#main()
