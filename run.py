@@ -4,7 +4,7 @@ import os, random
 
 def run_game():
   word = random.choice(easy_words).upper()
-  hidden_word = "_ " * len(word)
+  hidden_word = "_" * len(word)
   remaining_guesses = 5
   guessed_letters = []
 
@@ -12,7 +12,6 @@ def run_game():
   print(hidden_word)
   print(f"\nAlready guessed: {guessed_letters}")
   print(f"\nRemaining guesses: {remaining_guesses}")
-  print(word)
 
   while remaining_guesses > 0:
     guess = input("\nEnter your guess - letter or word: ").upper()
@@ -20,15 +19,17 @@ def run_game():
       if guess not in word:
         remaining_guesses -= 1
         guessed_letters.append(guess)
-        print(remaining_guesses)
-        print(guessed_letters)
       else:
         word_ltrs = list(hidden_word)
         indices = [i for i, ltr in enumerate(word) if ltr == guess]
         for index in indices:
           word_ltrs[index] = guess
         hidden_word = "".join(word_ltrs)
-
+      os.system("clear")
+      print(tornado_display(remaining_guesses))
+      print(hidden_word)
+      print(f"\nAlready guessed: {guessed_letters}")
+      print(f"\nRemaining guesses: {remaining_guesses}")
 
 run_game()
 
