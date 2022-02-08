@@ -1,4 +1,4 @@
-from slides import tries
+from slides import tornado_display
 from words import easy_words, hard_words
 import os, random
 
@@ -8,7 +8,7 @@ def run_game():
   remaining_guesses = 5
   guessed_letters = []
 
-  print(tries[0])
+  print(tornado_display(remaining_guesses))
   print(hidden_word)
   print(f"\nAlready guessed: {guessed_letters}")
   print(f"\nRemaining guesses: {remaining_guesses}")
@@ -28,7 +28,7 @@ def run_game():
         for index in indices:
           word_ltrs[index] = guess
         hidden_word = "".join(word_ltrs)
-        print(hidden_word)
+
 
 run_game()
 
