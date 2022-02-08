@@ -12,7 +12,16 @@ def run_game():
   print(hidden_word)
   print(f"\nAlready guessed: {guessed_letters}")
   print(f"\nRemaining guesses: {remaining_guesses}")
-  guess = input("\nEnter your guess - letter or word: ")
+  print(word)
+
+  while remaining_guesses > 0:
+    guess = input("\nEnter your guess - letter or word: ").upper()
+    if len(guess) == 1:
+      if guess not in word:
+        remaining_guesses -= 1
+        guessed_letters.append(guess)
+        print(remaining_guesses)
+        print(guessed_letters)
 
 run_game()
 
