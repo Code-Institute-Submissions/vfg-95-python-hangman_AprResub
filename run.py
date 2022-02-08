@@ -22,6 +22,13 @@ def run_game():
         guessed_letters.append(guess)
         print(remaining_guesses)
         print(guessed_letters)
+      else:
+        word_ltrs = list(hidden_word)
+        indices = [i for i, ltr in enumerate(word) if ltr == guess]
+        for index in indices:
+          word_ltrs[index] = guess
+        hidden_word = "".join(word_ltrs)
+        print(hidden_word)
 
 run_game()
 
