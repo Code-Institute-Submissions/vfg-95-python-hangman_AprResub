@@ -2,6 +2,13 @@ from slides import tornado_display
 from words import easy_words, hard_words
 import os, random
 
+class Tornado:
+  """
+  Class used to store the information required to play the game
+  by allowing functions to access and use the instance atttibutes
+  """
+
+
 def run_game():
   word = random.choice(easy_words).upper()
   hidden_word = "_" * len(word)
