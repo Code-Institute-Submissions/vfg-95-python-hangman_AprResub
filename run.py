@@ -8,11 +8,12 @@ class Tornado:
   by allowing functions to access and use the instance atttibutes
   """
   def __init__(self, words, display):
-    self.word = random.choice(easy_words).upper()
-    self.hidden_word = "_" * len(word)
+    self.current_words = words
+    self.current_word = random.choice(words).upper()
+    self.hidden_word = "_" * len(self.word)
     self.remaining_guesses = 5
+    self.display = self.remaining_guesses
     self.guessed_letters = []
-
 
 
 def run_game():
