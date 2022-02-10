@@ -18,30 +18,30 @@ class Tornado:
 
 def run_game(words):
 
-  
+  cur_game = Tornado(words, display)
 
-  print(tornado_display(remaining_guesses))
-  print(hidden_word)
-  print(f"\nAlready guessed: {guessed_letters}")
-  print(f"\nRemaining guesses: {remaining_guesses}")
+  print(tornado_display(game.remaining_guesses))
+  print(game.hidden_word)
+  print(f"\nAlready guessed: {cur_game.guessed_letters}")
+  print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
-  while remaining_guesses > 0:
+  while cur_game.remaining_guesses > 0:
     guess = input("\nEnter your guess - letter or word: ").upper()
     if len(guess) == 1:
-      if guess not in word:
-        remaining_guesses -= 1
-        guessed_letters.append(guess)
+      if guess not in cur_game.word:
+        cur_game.remaining_guesses -= 1
+        cur_game.guessed_letters.append(guess)
       else:
-        word_ltrs = list(hidden_word)
-        indices = [i for i, ltr in enumerate(word) if ltr == guess]
+        word_ltrs = list(cur_game.hidden_word)
+        indices = [i for i, ltr in enumerate(cur_game.word) if ltr == guess]
         for index in indices:
           word_ltrs[index] = guess
-        hidden_word = "".join(word_ltrs)
+        cur_game.hidden_word = "".join(word_ltrs)
       os.system("clear")
-      print(tornado_display(remaining_guesses))
-      print(hidden_word)
-      print(f"\nAlready guessed: {guessed_letters}")
-      print(f"\nRemaining guesses: {remaining_guesses}")
+      print(tornado_display(cur_game.remaining_guesses))
+      print(cur_game.hidden_word)
+      print(f"\nAlready guessed: {cur_game.guessed_letters}")
+      print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
 
 
