@@ -16,7 +16,7 @@ class Tornado:
     self.guessed_letters = []
 
 
-def run_game():
+def run_game(words):
 
   print(tornado_display(remaining_guesses))
   print(hidden_word)
@@ -63,10 +63,10 @@ def main():
   difficulty = input("Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
   if difficulty == 'EASY':
     os.system("clear") 
-    run_game()
+    run_game(easy_words)
   elif difficulty == 'HARD':
     os.system("clear") 
-    run_game()
+    run_game(hard_words)
 
 
 main()
