@@ -8,9 +8,9 @@ class Tornado:
   by allowing functions to access and use the instance atttibutes
   """
   def __init__(self, words):
-    self.current_words = words
-    self.current_word = random.choice(words).upper()
-    self.hidden_word = "_" * len(self.word)
+    self.cur_words = words
+    self.cur_word = random.choice(words).upper()
+    self.hidden_word = "_" * len(self.cur_word)
     self.remaining_guesses = 5
     self.display = self.remaining_guesses
     self.guessed_letters = []
@@ -28,12 +28,12 @@ def run_game(words):
   while cur_game.remaining_guesses > 0:
     guess = input("\nEnter your guess - letter or word: ").upper()
     if len(guess) == 1:
-      if guess not in cur_game.word:
+      if guess not in cur_game.current_word:
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
       else:
         word_ltrs = list(cur_game.hidden_word)
-        indices = [i for i, ltr in enumerate(cur_game.word) if ltr == guess]
+        indices = [i for i, ltr in enumerate(cur_game.current_word) if ltr == guess]
         for index in indices:
           word_ltrs[index] = guess
         cur_game.hidden_word = "".join(word_ltrs)
