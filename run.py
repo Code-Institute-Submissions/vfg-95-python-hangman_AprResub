@@ -7,7 +7,7 @@ class Tornado:
   Class used to store the information required to play the game
   by allowing functions to access and use the instance atttibutes
   """
-  def __init__(self):
+  def __init__(self, words, display):
     self.word = random.choice(easy_words).upper()
     self.hidden_word = "_" * len(word)
     self.remaining_guesses = 5
