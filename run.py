@@ -9,7 +9,7 @@ class Tornado:
   """
   def __init__(self, words):
     self.current_words = words
-    self.word = random.choice(words).upper()
+    self.current_word = random.choice(words).upper()
     self.hidden_word = "_" * len(self.word)
     self.remaining_guesses = 5
     self.display = self.remaining_guesses
