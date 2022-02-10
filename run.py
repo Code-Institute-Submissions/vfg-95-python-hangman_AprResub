@@ -14,7 +14,6 @@ def run_game():
   hidden_word = "_" * len(word)
   remaining_guesses = 5
   guessed_letters = []
-
   print(tornado_display(remaining_guesses))
   print(hidden_word)
   print(f"\nAlready guessed: {guessed_letters}")
@@ -38,7 +37,6 @@ def run_game():
       print(f"\nAlready guessed: {guessed_letters}")
       print(f"\nRemaining guesses: {remaining_guesses}")
 
-run_game()
 
 
 def main():
@@ -58,10 +56,13 @@ def main():
     "\n- If you guess correct, the letter will appear and you can make a new guess",
     "\n- If your guess is incorrect you will lose a life",
     "\n- You have 5 lives. At 0 the tornado will wipe out the household and it's game over")
-  play = input("Press p to play: ")
-  if play == 'p':
+  difficulty = input("Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
+  if difficulty == 'EASY':
+    os.system("clear") 
+    run_game()
+  elif difficulty == 'HARD':
     os.system("clear") 
     run_game()
 
 
-#main()
+main()
