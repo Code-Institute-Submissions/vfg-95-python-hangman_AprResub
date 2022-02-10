@@ -28,20 +28,23 @@ def run_game(words):
   while cur_game.remaining_guesses > 0:
     guess = input("\nEnter your guess - letter or word: ").upper()
     if len(guess) == 1:
-      if guess not in cur_game.current_word:
+      if guess not in cur_game.cur_word:
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
       else:
         word_ltrs = list(cur_game.hidden_word)
-        indices = [i for i, ltr in enumerate(cur_game.current_word) if ltr == guess]
+        indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
         for index in indices:
           word_ltrs[index] = guess
         cur_game.hidden_word = "".join(word_ltrs)
-      os.system("clear")
-      print(tornado_display(cur_game.remaining_guesses))
-      print(cur_game.hidden_word)
-      print(f"\nAlready guessed: {cur_game.guessed_letters}")
-      print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
+      update_display(cur_game)
+
+def update_display(cur_game):
+  os.system("clear")
+  print(tornado_display(cur_game.remaining_guesses))
+  print(cur_game.hidden_word)
+  print(f"\nAlready guessed: {cur_game.guessed_letters}")
+  print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
 
 
