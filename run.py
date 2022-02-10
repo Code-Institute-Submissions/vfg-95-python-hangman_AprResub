@@ -7,9 +7,9 @@ class Tornado:
   Class used to store the information required to play the game
   by allowing functions to access and use the instance atttibutes
   """
-  def __init__(self, words, display):
+  def __init__(self, words):
     self.current_words = words
-    self.current_word = random.choice(words).upper()
+    self.word = random.choice(words).upper()
     self.hidden_word = "_" * len(self.word)
     self.remaining_guesses = 5
     self.display = self.remaining_guesses
@@ -18,10 +18,10 @@ class Tornado:
 
 def run_game(words):
 
-  cur_game = Tornado(words, display)
+  cur_game = Tornado(words)
 
-  print(tornado_display(game.remaining_guesses))
-  print(game.hidden_word)
+  print(tornado_display(cur_game.remaining_guesses))
+  print(cur_game.hidden_word)
   print(f"\nAlready guessed: {cur_game.guessed_letters}")
   print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
