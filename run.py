@@ -46,7 +46,7 @@ def update_display(cur_game):
     os.system("clear")
     print(tornado_display(cur_game.remaining_guesses))
     print(cur_game.hidden_word)
-    print(f"\nAlready guessed: {cur_game.guessed_letters}")
+    print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
     print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
 
