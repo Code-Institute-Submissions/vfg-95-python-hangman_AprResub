@@ -27,12 +27,14 @@ def run_game(words):
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
-            clear_screen(cur_game)
-            update_display(cur_game)
+        clear_screen(cur_game)
+        update_display(cur_game)
         
 
 def check_letter(cur_game, guess):
-    if guess not in cur_game.cur_word:
+    if guess in cur_game.guessed_letters:
+        print(f"You already guessed {guess}")
+    elif guess not in cur_game.cur_word:
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
     else:
