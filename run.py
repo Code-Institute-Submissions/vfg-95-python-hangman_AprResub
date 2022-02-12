@@ -28,6 +28,7 @@ def run_game(words):
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
+        time.sleep(1)
         clear_screen(cur_game)
         update_display(cur_game)
         
