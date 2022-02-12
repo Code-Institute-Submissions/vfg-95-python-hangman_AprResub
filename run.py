@@ -2,6 +2,7 @@ from slides import tornado_display
 from words import easy_words, hard_words
 import random
 import os
+import time
 
 
 class Tornado:
