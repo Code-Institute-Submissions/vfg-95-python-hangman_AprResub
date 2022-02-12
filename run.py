@@ -34,16 +34,21 @@ def run_game(words):
 
 def check_letter(cur_game, guess):
     if guess in cur_game.guessed_letters:
-        print(f"You already guessed {guess}")
+        clear_screen(cur_game)
+        already_guessed(cur_game, guess)
     elif guess not in cur_game.cur_word:
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
-    else:
+        clear_screen(cur_game)
+        update_display(cur_game)
+    elif guess in cur_game.cur_word:
         word_ltrs = list(cur_game.hidden_word)
         indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
         for index in indices:
             word_ltrs[index] = guess
         cur_game.hidden_word = "".join(word_ltrs)
+        clear_screen(cur_game)
+        update_display(cur_game)
 
 
 def already_guessed(cur_game, guess):
