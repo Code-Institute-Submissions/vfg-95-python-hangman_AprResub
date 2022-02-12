@@ -106,14 +106,19 @@ def main():
     \nIf you guess correct, the letter will appear and you can make a new guess
     \nIf your guess is incorrect you will lose a life"
     \nYou have 5 lives. At 0 the tornado will wipe out the household""")
-    difficulty = input(
-        "Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
-    if difficulty == 'EASY':
-        os.system("clear")
-        run_game(easy_words)
-    elif difficulty == 'HARD':
-        os.system("clear")
-        run_game(hard_words)
+
+    while True:
+
+        difficulty = input(
+            "\nChoose your difficulty - enter 'Easy' or 'Hard': ").upper()
+        if difficulty == 'EASY':
+            os.system("clear")
+            run_game(easy_words)
+        elif difficulty == 'HARD':
+            os.system("clear")
+            run_game(hard_words)
+        else:
+            print("\nInvalid response - Please try again:") 
 
 
 main()
