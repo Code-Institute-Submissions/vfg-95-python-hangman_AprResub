@@ -29,31 +29,45 @@ def run_game(words):
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
-        time.sleep(1)
+        time.sleep(5)
         clear_screen(cur_game)
         update_display(cur_game)
         
 
 def check_letter(cur_game, guess):
     if guess in cur_game.guessed_letters:
+        cur_game.feedback = 1
         clear_screen(cur_game)
-        already_guessed(cur_game, guess)
+        user_feedback(cur_game, guess)
     elif guess not in cur_game.cur_word:
+        cur_game.feedback = 2
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
+        user_feedback(cur_game, guess)
     elif guess in cur_game.cur_word:
+        cur_game.feedback = 3
         cur_game.guessed_letters.append(guess)
         word_ltrs = list(cur_game.hidden_word)
         indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
         for index in indices:
             word_ltrs[index] = guess
         cur_game.hidden_word = "".join(word_ltrs)
+        user_feedback(cur_game, guess)
 
 
-def already_guessed(cur_game, guess):
-    print(tornado_display(cur_game.remaining_guesses))
-    print(cur_game.hidden_word)
-    print(f"\nYou already guessed {guess}!")
+def user_feedback(cur_game, guess):
+    if cur_game.feedback == 1:
+        print(tornado_display(cur_game.remaining_guesses))
+        print(cur_game.hidden_word)
+        print(f"\nYou already guessed {guess}!")
+    elif cur_game.feedback == 2:
+        print(tornado_display(cur_game.remaining_guesses))
+        print(cur_game.hidden_word)
+        print(f"\n{guess} is not in the word!")
+    elif cur_game.feedback == 3:
+        print(tornado_display(cur_game.remaining_guesses))
+        print(cur_game.hidden_word)
+        print(f"\nWell done! {guess} is in the word!")
 
 
 def update_display(cur_game):
