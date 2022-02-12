@@ -24,22 +24,23 @@ def run_game(words):
     cur_game = Tornado(words)
 
     update_display(cur_game)
+    print(cur_game.cur_word)
 
     while cur_game.remaining_guesses > 0:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
-        time.sleep(5)
+        time.sleep(2)
         clear_screen(cur_game)
         update_display(cur_game)
         
 
 def check_letter(cur_game, guess):
-    if guess in cur_game.guessed_letters:
+    if guess in cur_game.guessed_letters and guess.isalpha():
         cur_game.feedback = 1
         clear_screen(cur_game)
         user_feedback(cur_game, guess)
-    elif guess not in cur_game.cur_word:
+    elif guess not in cur_game.cur_word and guess.isalpha():
         cur_game.feedback = 2
         cur_game.remaining_guesses -= 1
         cur_game.guessed_letters.append(guess)
@@ -52,6 +53,8 @@ def check_letter(cur_game, guess):
         for index in indices:
             word_ltrs[index] = guess
         cur_game.hidden_word = "".join(word_ltrs)
+        user_feedback(cur_game, guess)
+    else:
         user_feedback(cur_game, guess)
 
 
@@ -68,6 +71,10 @@ def user_feedback(cur_game, guess):
         print(tornado_display(cur_game.remaining_guesses))
         print(cur_game.hidden_word)
         print(f"\nWell done! {guess} is in the word!")
+    else:
+        print(tornado_display(cur_game.remaining_guesses))
+        print(cur_game.hidden_word)
+        print(f"\nYour guess needs to be either a word or letter. Try again..")
 
 
 def update_display(cur_game):
