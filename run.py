@@ -46,6 +46,12 @@ def check_letter(cur_game, guess):
         cur_game.hidden_word = "".join(word_ltrs)
 
 
+def already_guessed(cur_game, guess):
+    print(tornado_display(cur_game.remaining_guesses))
+    print(cur_game.hidden_word)
+    print(f"\nYou already guessed {guess}!")
+
+
 def update_display(cur_game):
     print(tornado_display(cur_game.remaining_guesses))
     print(cur_game.hidden_word)
