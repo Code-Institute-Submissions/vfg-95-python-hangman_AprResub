@@ -16,6 +16,7 @@ class Tornado:
         self.hidden_word = "_" * len(self.cur_word)
         self.remaining_guesses = 5
         self.guessed_letters = []
+        self.feedback = 0
 
 
 def run_game(words):
