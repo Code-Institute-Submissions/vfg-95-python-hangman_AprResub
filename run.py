@@ -17,7 +17,7 @@ class Tornado:
         self.remaining_guesses = 5
         self.guessed_letters = []
         self.feedback = 0
-        self.game_won = False
+        self.won = False
 
 
 def run_game(words):
