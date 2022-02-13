@@ -31,10 +31,12 @@ def run_game(words):
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
+        elif len(guess) > 1:
+            check_word(cur_game, guess)
         time.sleep(2)
         clear_screen(cur_game)
         main_display(cur_game)
-        
+
 
 def check_letter(cur_game, guess):
     if guess in cur_game.guessed_letters and guess.isalpha():
@@ -57,6 +59,14 @@ def check_letter(cur_game, guess):
         user_feedback(cur_game, guess)
     else:
         user_feedback(cur_game, guess)
+
+
+def check_word(cur_game, guess):
+    if guess == cur_game.cur_word:
+        win_game(cur_game, guess)
+    else:
+        cur_game.remaining_guesses -= 1
+        update_display(cur_game)
 
 
 def user_feedback(cur_game, guess):
@@ -89,11 +99,12 @@ def clear_screen(cur_game):
     os.system("clear")
 
 
-def win_game(cur_game):
+def win_game(cur_game, guess): 
+    print('YOU WON!')
 
 
 def play_again(cur_game):
-
+    print("Test")
 
 def main():
     print("""
