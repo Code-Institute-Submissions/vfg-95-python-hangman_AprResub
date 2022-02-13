@@ -35,6 +35,8 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
+    else:
+        win_game(cur_game, guess)
 
 
 def check_letter(cur_game, guess):
@@ -100,10 +102,9 @@ def clear_screen(cur_game):
 
 
 def win_game(cur_game, guess):
-
     clear_screen(cur_game) 
     print(tornado_display(cur_game.remaining_guesses))
-    print(f"{guess} is correct! Well done. You saved the household!")
+    print(f"{guess} is correct! Well done, You saved the household!")
 
 
 def play_again(cur_game):
