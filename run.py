@@ -52,7 +52,7 @@ def check_letter(cur_game, guess):
     elif guess in cur_game.cur_word:
         cur_game.feedback = 3
         cur_game.guessed_letters.append(guess)
-        update_word_to_guess(cur_game, guess)
+        update_reveal_word(cur_game)
         user_feedback(cur_game, guess)
     else:
         user_feedback(cur_game, guess)
@@ -68,7 +68,7 @@ def check_word(cur_game, guess):
         user_feedback(cur_game, guess)
 
 
-def update_word_to_guess(cur_game, guess):
+def update_reveal_word(cur_game, guess):
     word_ltrs = list(cur_game.hidden_word)
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
     for index in indices:
