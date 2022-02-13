@@ -60,28 +60,28 @@ def check_letter(cur_game, guess):
 
 def user_feedback(cur_game, guess):
     if cur_game.feedback == 1:
-        print(tornado_display(cur_game.remaining_guesses))
-        print(cur_game.hidden_word)
+        update_display(cur_game)
         print(f"\nYou already guessed {guess}!")
     elif cur_game.feedback == 2:
-        print(tornado_display(cur_game.remaining_guesses))
-        print(cur_game.hidden_word)
+        update_display(cur_game)
         print(f"\n{guess} is not in the word!")
     elif cur_game.feedback == 3:
-        print(tornado_display(cur_game.remaining_guesses))
-        print(cur_game.hidden_word)
+        update_display(cur_game)
         print(f"\nWell done! {guess} is in the word!")
     else:
-        print(tornado_display(cur_game.remaining_guesses))
-        print(cur_game.hidden_word)
+        update_display(cur_game)
         print(f"\nYour guess needs to be either a word or letter. Try again..")
 
 
 def main_display(cur_game):
-    print(tornado_display(cur_game.remaining_guesses))
-    print(cur_game.hidden_word)
+    update_display(cur_game)
     print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
     print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
+
+
+def update_display(cur_game):
+    print(tornado_display(cur_game.remaining_guesses))
+    print(cur_game.hidden_word)
 
 
 def clear_screen(cur_game):
