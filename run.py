@@ -23,19 +23,18 @@ class Tornado:
 def run_game(words):
 
     cur_game = Tornado(words)
-
     main_display(cur_game)
-    print(cur_game.cur_word)
+    print(cur_game.cur_word) #dont forget to delete
 
-    while cur_game.remaining_guesses > 0:
+    while cur_game.remaining_guesses > 0 and cur_game.won = False:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
+            time.sleep(2)
+            clear_screen(cur_game)
+            main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
-        time.sleep(2)
-        clear_screen(cur_game)
-        main_display(cur_game)
 
 
 def check_letter(cur_game, guess):
@@ -63,10 +62,11 @@ def check_letter(cur_game, guess):
 
 def check_word(cur_game, guess):
     if guess == cur_game.cur_word:
+        cur_game.won = True
         win_game(cur_game, guess)
     else:
         cur_game.remaining_guesses -= 1
-        update_display(cur_game)
+        main_display(cur_game)
 
 
 def user_feedback(cur_game, guess):
@@ -99,8 +99,11 @@ def clear_screen(cur_game):
     os.system("clear")
 
 
-def win_game(cur_game, guess): 
-    print('YOU WON!')
+def win_game(cur_game, guess):
+
+    clear_screen(cur_game) 
+    print(tornado_display(cur_game.remaining_guesses))
+    print(f"{guess} is correct! Well done. You saved the household!")
 
 
 def play_again(cur_game):
