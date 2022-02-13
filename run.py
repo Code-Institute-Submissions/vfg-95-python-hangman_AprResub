@@ -26,7 +26,7 @@ def run_game(words):
     main_display(cur_game)
     print(cur_game.cur_word) #dont forget to delete
 
-    while cur_game.remaining_guesses > 0 and cur_game.won = False:
+    while cur_game.remaining_guesses > 0 and cur_game.won == False:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
@@ -67,8 +67,10 @@ def check_word(cur_game, guess):
         cur_game.won = True
         win_game(cur_game, guess)
     else:
+        cur_game.feedback = 4
         cur_game.remaining_guesses -= 1
-        main_display(cur_game)
+        user_feedback(cur_game, guess)
+        
 
 
 def user_feedback(cur_game, guess):
@@ -81,6 +83,9 @@ def user_feedback(cur_game, guess):
     elif cur_game.feedback == 3:
         update_display(cur_game)
         print(f"\nWell done! {guess} is in the word!")
+    elif cur_game.feedback == 4:
+        update_display(cur_game)
+        print(f"\n {guess} is not the word!")
     else:
         update_display(cur_game)
         print(f"\nYour guess needs to be either a word or letter. Try again..")
@@ -105,10 +110,6 @@ def win_game(cur_game, guess):
     clear_screen(cur_game) 
     print(tornado_display(cur_game.remaining_guesses))
     print(f"{guess} is correct! Well done, You saved the household!")
-
-
-def play_again(cur_game):
-    print("Test")
 
 def main():
     print("""
