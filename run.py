@@ -24,9 +24,9 @@ def run_game(words):
 
     cur_game = Tornado(words)
     main_display(cur_game)
-    print(cur_game.cur_word) #dont forget to delete
+    print(cur_game.cur_word)  #dont forget to delete
 
-    while cur_game.remaining_guesses > 0 and cur_game.won == False:
+    while cur_game.remaining_guesses > 0 or cur_game.won == False:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
@@ -52,11 +52,7 @@ def check_letter(cur_game, guess):
     elif guess in cur_game.cur_word:
         cur_game.feedback = 3
         cur_game.guessed_letters.append(guess)
-        word_ltrs = list(cur_game.hidden_word)
-        indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
-        for index in indices:
-            word_ltrs[index] = guess
-        cur_game.hidden_word = "".join(word_ltrs)
+        update_word_to_guess(cur_game, guess)
         user_feedback(cur_game, guess)
     else:
         user_feedback(cur_game, guess)
@@ -70,7 +66,14 @@ def check_word(cur_game, guess):
         cur_game.feedback = 4
         cur_game.remaining_guesses -= 1
         user_feedback(cur_game, guess)
-        
+
+
+def update_word_to_guess(cur_game, guess):
+    word_ltrs = list(cur_game.hidden_word)
+    indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
+    for index in indices:
+        word_ltrs[index] = guess
+    cur_game.hidden_word = "".join(word_ltrs)        
 
 
 def user_feedback(cur_game, guess):
