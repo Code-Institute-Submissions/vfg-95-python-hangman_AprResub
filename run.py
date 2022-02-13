@@ -89,6 +89,12 @@ def clear_screen(cur_game):
     os.system("clear")
 
 
+def win_game(cur_game):
+
+
+def play_again(cur_game):
+
+
 def main():
     print("""
          _______  _______  ______    __    _  _______  ______   _______
