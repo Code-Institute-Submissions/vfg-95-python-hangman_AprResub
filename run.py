@@ -23,7 +23,7 @@ def run_game(words):
 
     cur_game = Tornado(words)
 
-    update_display(cur_game)
+    main_display(cur_game)
     print(cur_game.cur_word)
 
     while cur_game.remaining_guesses > 0:
@@ -32,7 +32,7 @@ def run_game(words):
             check_letter(cur_game, guess)
         time.sleep(2)
         clear_screen(cur_game)
-        update_display(cur_game)
+        main_display(cur_game)
         
 
 def check_letter(cur_game, guess):
@@ -77,7 +77,7 @@ def user_feedback(cur_game, guess):
         print(f"\nYour guess needs to be either a word or letter. Try again..")
 
 
-def update_display(cur_game):
+def main_display(cur_game):
     print(tornado_display(cur_game.remaining_guesses))
     print(cur_game.hidden_word)
     print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
@@ -100,7 +100,7 @@ def main():
         """)
 
     print(""" Welcome to Tornado,
-     do you think you have what it takes to save the household?""")
+do you think you have what it takes to save the household?""")
     print("""\nThe rules are very simple:
     \nA word is chosen and you must guess the word by inputting letters
     \nIf you guess correct, the letter will appear and you can make a new guess
