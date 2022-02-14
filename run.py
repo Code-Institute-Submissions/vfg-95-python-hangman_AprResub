@@ -27,7 +27,7 @@ def run_game(words):
     """
     cur_game = Tornado(words)
     main_display(cur_game)
-    print(cur_game.cur_word)  #TODO remove line
+    print(cur_game.cur_word)  # TODO remove line
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
         guess = typing_input("\nEnter your guess - letter or word: ").upper()
@@ -69,6 +69,7 @@ def check_letter(cur_game, guess):
             if cur_game.rem_guess == 0:
                 print("lose game")
     else:
+        update_display(cur_game)
         print("\nYour guess needs to be either a word or letter. Try again..")
 
 
