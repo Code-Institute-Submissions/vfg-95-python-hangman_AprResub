@@ -33,7 +33,7 @@ def run_game(words):
         guess = typing_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
-            if cur_game.won is True:
+            if cur_game.won is True or cur_game.rem_guess == 0:
                 win_game(cur_game, guess)
                 break
             time.sleep(2)
@@ -41,6 +41,9 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
+            if cur_game.won is True or cur_game.rem_guess == 0:
+                win_game(cur_game, guess)
+                break
 
 
 def check_letter(cur_game, guess):
