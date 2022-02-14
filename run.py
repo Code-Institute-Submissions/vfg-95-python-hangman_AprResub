@@ -151,7 +151,7 @@ def typing_print(text):
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(0.035)
   
 
 def typing_input(text):
@@ -161,7 +161,7 @@ def typing_input(text):
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
-        time.sleep(0.05)
+        time.sleep(0.035)
     value = input()  
     return value
 
@@ -180,18 +180,22 @@ def main():
           |___|  |_______||___|  |_||_|  |__||__| |__||______| |_______|
         """)
 
-    print(""" Welcome to Tornado,
-do you think you have what it takes to save the household?""")
-    print("""\nThe rules are very simple:
-    \nA word is chosen and you must guess the word by inputting letters
-    \nIf you guess correct, the letter will appear and you can make a new guess
-    \nIf your guess is incorrect you will lose a life"
-    \nYou have 5 lives. At 0 the tornado will wipe out the household""")
-
+    typing_print(""" Welcome to Tornado,
+ do you think you have what it takes to save the household?""")
+    time.sleep(0.5)
+    print("\n")
+    typing_print(""" The rules are very simple: \n
+ - A word is chosen and you must guess the word by inputting letters
+ - If you guess correct, the letter will appear and you can make a new guess
+ - If your guess is incorrect you will lose a life
+ - You have 5 lives. At 0 the tornado will wipe out the household and you lose
+ - If you wish to quit at any point, enter 'Quit'""")
+    time.sleep(0.5)
+    print("\n")
     while True:
 
-        difficulty = input(
-            "\nChoose your difficulty - enter 'Easy' or 'Hard': ").upper()
+        difficulty = typing_input(
+            " Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
         if difficulty == 'EASY':
             os.system("clear")
             run_game(easy_words)
@@ -201,7 +205,7 @@ do you think you have what it takes to save the household?""")
         elif difficulty == 'QUIT':
             quit()
         else:
-            print("\nInvalid response - Please try again:") 
+            print("\n Invalid response - Please try again: \n") 
 
 
 main()
