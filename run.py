@@ -144,6 +144,28 @@ def win_game(cur_game, guess):
     print(f"{guess} is correct! Well done, You saved the household!")
 
 
+def typing_print(text):
+    """
+    This allows text to be displayed with typing effect
+    """
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+  
+
+def typing_input(text):
+    """
+    This allows input text to be displayed with typing effect
+    """
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
+    value = input()  
+    return value
+
+
 def main():
     """
     docstring
