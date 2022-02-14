@@ -37,6 +37,8 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
+    else:
+        win_game(cur_game, guess)
 
 
 def check_letter(cur_game, guess):
@@ -65,7 +67,9 @@ def check_word(cur_game, guess):
     """
     docstring
     """
-    if guess == cur_game.cur_word:
+    if guess == 'QUIT':
+        quit()
+    elif guess == cur_game.cur_word:
         cur_game.won = True
         win_game(cur_game, guess)
     else:
@@ -171,6 +175,8 @@ do you think you have what it takes to save the household?""")
         elif difficulty == 'HARD':
             os.system("clear")
             run_game(hard_words)
+        elif difficulty == 'QUIT':
+            quit()
         else:
             print("\nInvalid response - Please try again:") 
 
