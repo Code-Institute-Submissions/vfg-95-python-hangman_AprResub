@@ -3,6 +3,7 @@ from words import easy_words, hard_words
 import random
 import os
 import time
+import sys
 
 
 class Tornado:
