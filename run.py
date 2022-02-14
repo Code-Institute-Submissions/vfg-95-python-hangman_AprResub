@@ -1,9 +1,9 @@
-from slides import tornado_display
-from words import easy_words, hard_words
 import random
 import os
 import time
 import sys
+from slides import tornado_display
+from words import easy_words, hard_words
 
 
 class Tornado:
@@ -33,11 +33,11 @@ def run_game(words):
         guess = typing_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
-            if cur_game.won == True:
+            if cur_game.won is True:
                 win_game(cur_game, guess)
                 break
             time.sleep(2)
-            clear_screen(cur_game)
+            clear_screen()
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
@@ -50,7 +50,7 @@ def check_letter(cur_game, guess):
     if guess.isalpha():
         if guess in cur_game.guessed_letters:
             cur_game.feedback = 1
-            clear_screen(cur_game)
+            clear_screen()
             user_feedback(cur_game, guess)
         elif guess in cur_game.cur_word:
             cur_game.feedback = 3
@@ -69,7 +69,7 @@ def check_letter(cur_game, guess):
             if cur_game.rem_guess == 0:
                 print("lose game")
     else:
-        print(f"\nYour guess needs to be either a word or letter. Try again..")
+        print("\nYour guess needs to be either a word or letter. Try again..")
 
 
 def check_word(cur_game, guess):
@@ -95,7 +95,7 @@ def update_reveal_word(cur_game, guess):
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
     for index in indices:
         word_ltrs[index] = guess
-    cur_game.reveal_word = "".join(word_ltrs)        
+    cur_game.reveal_word = "".join(word_ltrs)
 
 
 def user_feedback(cur_game, guess):
@@ -135,7 +135,7 @@ def update_display(cur_game):
     print(cur_game.reveal_word)
 
 
-def clear_screen(cur_game):
+def clear_screen():
     """
     docstring
     """
@@ -146,7 +146,7 @@ def win_game(cur_game, guess):
     """
     docstring
     """
-    clear_screen(cur_game) 
+    clear_screen()
     print(tornado_display(cur_game.rem_guess))
     print(f"{guess} is correct! Well done, You saved the household!")
 
@@ -159,7 +159,7 @@ def typing_print(text):
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(0.035)
-  
+
 
 def typing_input(text):
     """
@@ -169,7 +169,7 @@ def typing_input(text):
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(0.035)
-    value = input()  
+    value = input()
     return value
 
 
@@ -217,7 +217,7 @@ def main():
         elif difficulty == 'QUIT':
             quit()
         else:
-            print("\n Invalid response - Please try again: \n") 
+            print("\n Invalid response - Please try again: \n")
 
 
 main()
