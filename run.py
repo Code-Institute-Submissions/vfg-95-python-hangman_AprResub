@@ -13,7 +13,7 @@ class Tornado:
     def __init__(self, words):
         self.cur_words = words
         self.cur_word = random.choice(words).upper()
-        self.hidden_word = "_" * len(self.cur_word)
+        self.reveal_word = "_" * len(self.cur_word)
         self.remaining_guesses = 5
         self.guessed_letters = []
         self.feedback = 0
@@ -21,12 +21,14 @@ class Tornado:
 
 
 def run_game(words):
-
+    """
+    docstring
+    """
     cur_game = Tornado(words)
     main_display(cur_game)
     print(cur_game.cur_word)  #dont forget to delete
 
-    while cur_game.remaining_guesses > 0 or cur_game.won == False:
+    while cur_game.remaining_guesses > 0:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
@@ -35,11 +37,15 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
-    else:
-        win_game(cur_game, guess)
+        elif cur_game.remaining_guesses == 0 or cur_game.won is True:
+            win_game(cur_game, guess)
+            break
 
 
 def check_letter(cur_game, guess):
+    """
+    docstring
+    """
     if guess in cur_game.guessed_letters and guess.isalpha():
         cur_game.feedback = 1
         clear_screen(cur_game)
@@ -52,13 +58,16 @@ def check_letter(cur_game, guess):
     elif guess in cur_game.cur_word:
         cur_game.feedback = 3
         cur_game.guessed_letters.append(guess)
-        update_reveal_word(cur_game)
+        update_reveal_word(cur_game, guess)
         user_feedback(cur_game, guess)
     else:
         user_feedback(cur_game, guess)
 
 
 def check_word(cur_game, guess):
+    """
+    docstring
+    """
     if guess == cur_game.cur_word:
         cur_game.won = True
         win_game(cur_game, guess)
@@ -69,14 +78,20 @@ def check_word(cur_game, guess):
 
 
 def update_reveal_word(cur_game, guess):
-    word_ltrs = list(cur_game.hidden_word)
+    """
+    docstring
+    """
+    word_ltrs = list(cur_game.reveal_word)
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
     for index in indices:
         word_ltrs[index] = guess
-    cur_game.hidden_word = "".join(word_ltrs)        
+    cur_game.reveal_word = "".join(word_ltrs)        
 
 
 def user_feedback(cur_game, guess):
+    """
+    docstring
+    """
     if cur_game.feedback == 1:
         update_display(cur_game)
         print(f"\nYou already guessed {guess}!")
@@ -95,26 +110,42 @@ def user_feedback(cur_game, guess):
 
 
 def main_display(cur_game):
+    """
+    docstring
+    """
     update_display(cur_game)
     print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
     print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
 
 
 def update_display(cur_game):
+    """
+    docstring
+    """
     print(tornado_display(cur_game.remaining_guesses))
-    print(cur_game.hidden_word)
+    print(cur_game.reveal_word)
 
 
 def clear_screen(cur_game):
+    """
+    docstring
+    """
     os.system("clear")
 
 
 def win_game(cur_game, guess):
+    """
+    docstring
+    """
     clear_screen(cur_game) 
     print(tornado_display(cur_game.remaining_guesses))
     print(f"{guess} is correct! Well done, You saved the household!")
 
+
 def main():
+    """
+    docstring
+    """
     print("""
          _______  _______  ______    __    _  _______  ______   _______
         |       ||       ||    _ |  |  |  | ||   _   ||      | |       |
