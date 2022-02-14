@@ -27,10 +27,10 @@ def run_game(words):
     """
     cur_game = Tornado(words)
     main_display(cur_game)
-    print(cur_game.cur_word)  #dont forget to delete
+    print(cur_game.cur_word)  #TODO remove line
 
-    while cur_game.rem_guess > 0:
-        guess = input("\nEnter your guess - letter or word: ").upper()
+    while cur_game.rem_guess > 0 or cur_game.won is False:
+        guess = typing_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
             time.sleep(2)
@@ -38,30 +38,35 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
-    else:
-        win_game(cur_game, guess)
 
 
 def check_letter(cur_game, guess):
     """
     docstring
     """
-    if guess in cur_game.guessed_letters and guess.isalpha():
-        cur_game.feedback = 1
-        clear_screen(cur_game)
-        user_feedback(cur_game, guess)
-    elif guess not in cur_game.cur_word and guess.isalpha():
-        cur_game.feedback = 2
-        cur_game.rem_guess -= 1
-        cur_game.guessed_letters.append(guess)
-        user_feedback(cur_game, guess)
-    elif guess in cur_game.cur_word:
-        cur_game.feedback = 3
-        cur_game.guessed_letters.append(guess)
-        update_reveal_word(cur_game, guess)
-        user_feedback(cur_game, guess)
+    if guess.isalpha():
+        if guess in cur_game.guessed_letters:
+            cur_game.feedback = 1
+            clear_screen(cur_game)
+            user_feedback(cur_game, guess)
+        elif guess in cur_game.cur_word:
+            cur_game.feedback = 3
+            cur_game.guessed_letters.append(guess)
+            update_reveal_word(cur_game, guess)
+            user_feedback(cur_game, guess)
+            if cur_game.reveal_word == cur_game.cur_word:
+                cur_game.won = True
+                win_game(cur_game, guess)
+        else:
+            cur_game.feedback = 2
+            cur_game.rem_guess -= 1
+            cur_game.guessed_letters.append(guess)
+            user_feedback(cur_game, guess)
+
+            if cur_game.rem_guess == 0:
+                print("lose game")
     else:
-        user_feedback(cur_game, guess)
+        print(f"\nYour guess needs to be either a word or letter. Try again..")
 
 
 def check_word(cur_game, guess):
@@ -108,7 +113,6 @@ def user_feedback(cur_game, guess):
         print(f"\n {guess} is not the word!")
     else:
         update_display(cur_game)
-        print(f"\nYour guess needs to be either a word or letter. Try again..")
 
 
 def main_display(cur_game):
@@ -180,23 +184,23 @@ def main():
           |___|  |_______||___|  |_||_|  |__||__| |__||______| |_______|
         """)
 
-    typing_print(""" Welcome to Tornado,
- do you think you have what it takes to save the household?""")
-    time.sleep(0.3)
-    print("\n")
-    typing_print(" The rules are very simple: \n")
-    time.sleep(0.3)
-    typing_print("\n- A word is chosen and you must guess the word by inputting letters")
-    time.sleep(0.3)
-    typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
-    time.sleep(0.3)
-    typing_print("\n- If your guess is incorrect you will lose a life")
-    time.sleep(0.3)
-    typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
-    time.sleep(0.3)
-    typing_print("\n- If you wish to quit at any point, enter 'Quit'")
-    time.sleep(0.3)
-    print("\n")
+#     typing_print(""" Welcome to Tornado,
+#  do you think you have what it takes to save the household?""")
+#     time.sleep(0.3)
+#     print("\n")
+#     typing_print(" The rules are very simple: \n")
+#     time.sleep(0.3)
+#     typing_print("\n- A word is chosen and you must guess the word by inputting letters")
+#     time.sleep(0.3)
+#     typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
+#     time.sleep(0.3)
+#     typing_print("\n- If your guess is incorrect you will lose a life")
+#     time.sleep(0.3)
+#     typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
+#     time.sleep(0.3)
+#     typing_print("\n- If you wish to quit at any point, enter 'Quit'")
+#     time.sleep(0.3)
+#     print("\n")
     while True:
 
         difficulty = typing_input(
