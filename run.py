@@ -33,6 +33,9 @@ def run_game(words):
         guess = typing_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
+            if cur_game.won == True:
+                win_game(cur_game, guess)
+                break
             time.sleep(2)
             clear_screen(cur_game)
             main_display(cur_game)
