@@ -14,7 +14,7 @@ class Tornado:
         self.cur_words = words
         self.cur_word = random.choice(words).upper()
         self.reveal_word = "_" * len(self.cur_word)
-        self.remaining_guesses = 5
+        self.rem_guess = 5
         self.guessed_letters = []
         self.feedback = 0
         self.won = False
@@ -28,7 +28,7 @@ def run_game(words):
     main_display(cur_game)
     print(cur_game.cur_word)  #dont forget to delete
 
-    while cur_game.remaining_guesses > 0:
+    while cur_game.rem_guess > 0:
         guess = input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
@@ -37,9 +37,6 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
-        elif cur_game.remaining_guesses == 0 or cur_game.won is True:
-            win_game(cur_game, guess)
-            break
 
 
 def check_letter(cur_game, guess):
@@ -52,7 +49,7 @@ def check_letter(cur_game, guess):
         user_feedback(cur_game, guess)
     elif guess not in cur_game.cur_word and guess.isalpha():
         cur_game.feedback = 2
-        cur_game.remaining_guesses -= 1
+        cur_game.rem_guess -= 1
         cur_game.guessed_letters.append(guess)
         user_feedback(cur_game, guess)
     elif guess in cur_game.cur_word:
@@ -73,7 +70,7 @@ def check_word(cur_game, guess):
         win_game(cur_game, guess)
     else:
         cur_game.feedback = 4
-        cur_game.remaining_guesses -= 1
+        cur_game.rem_guess -= 1
         user_feedback(cur_game, guess)
 
 
@@ -115,14 +112,14 @@ def main_display(cur_game):
     """
     update_display(cur_game)
     print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
-    print(f"\nRemaining guesses: {cur_game.remaining_guesses}")
+    print(f"\nRemaining guesses: {cur_game.rem_guess}")
 
 
 def update_display(cur_game):
     """
     docstring
     """
-    print(tornado_display(cur_game.remaining_guesses))
+    print(tornado_display(cur_game.rem_guess))
     print(cur_game.reveal_word)
 
 
@@ -138,7 +135,7 @@ def win_game(cur_game, guess):
     docstring
     """
     clear_screen(cur_game) 
-    print(tornado_display(cur_game.remaining_guesses))
+    print(tornado_display(cur_game.rem_guess))
     print(f"{guess} is correct! Well done, You saved the household!")
 
 
