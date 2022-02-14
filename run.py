@@ -182,15 +182,20 @@ def main():
 
     typing_print(""" Welcome to Tornado,
  do you think you have what it takes to save the household?""")
-    time.sleep(0.5)
+    time.sleep(0.3)
     print("\n")
-    typing_print(""" The rules are very simple: \n
- - A word is chosen and you must guess the word by inputting letters
- - If you guess correct, the letter will appear and you can make a new guess
- - If your guess is incorrect you will lose a life
- - You have 5 lives. At 0 the tornado will wipe out the household and you lose
- - If you wish to quit at any point, enter 'Quit'""")
-    time.sleep(0.5)
+    typing_print(" The rules are very simple: \n")
+    time.sleep(0.3)
+    typing_print("\n- A word is chosen and you must guess the word by inputting letters")
+    time.sleep(0.3)
+    typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
+    time.sleep(0.3)
+    typing_print("\n- If your guess is incorrect you will lose a life")
+    time.sleep(0.3)
+    typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
+    time.sleep(0.3)
+    typing_print("\n- If you wish to quit at any point, enter 'Quit'")
+    time.sleep(0.3)
     print("\n")
     while True:
 
