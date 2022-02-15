@@ -37,7 +37,7 @@ def run_game(words):
             if cur_game.won is True or cur_game.rem_guess == 0:
                 win_game(cur_game, guess)
                 break
-            time.sleep(1)
+            time.sleep(2)
             clear_screen()
             main_display(cur_game)
         elif len(guess) > 1:
@@ -72,7 +72,7 @@ def check_letter(cur_game, guess):
             user_feedback(cur_game, guess)
     else:
         update_display(cur_game)
-        print("\nYour guess needs to be either a word or letter. Try again..")
+        t_print("\nYour guess needs to be a word or letter. Try again..")
 
 
 def check_word(cur_game, guess):
@@ -93,7 +93,7 @@ def check_word(cur_game, guess):
             user_feedback(cur_game, guess)
     else:
         update_display(cur_game)
-        print("\nYour guess needs to be either a word or letter. Try again..")
+        t_print("\nYour guess needs to be a word or letter. Try again..")
 
 
 def update_reveal_word(cur_game, guess):
@@ -114,16 +114,16 @@ def user_feedback(cur_game, guess):
     """
     if cur_game.feedback == 1:
         update_display(cur_game)
-        print(f"\nYou already guessed {guess}!")
+        t_print(f"\nYou already guessed {guess}!")
     elif cur_game.feedback == 2:
         update_display(cur_game)
-        print(f"\n{guess} is not in the word!")
+        t_print(f"\n{guess} is not in the word!")
     elif cur_game.feedback == 3:
         update_display(cur_game)
-        print(f"\nWell done! {guess} is in the word!")
+        t_print(f"\nWell done! {guess} is in the word!")
     elif cur_game.feedback == 4:
         update_display(cur_game)
-        print(f"\n {guess} is not the word!")
+        t_print(f"\n {guess} is not the word!")
     else:
         update_display(cur_game)
 
@@ -184,7 +184,7 @@ def play_again():
     elif again == 'QUIT':
         quit_game()
     else:
-        print("\n Invalid response - Please try again: \n")
+        t_print("\n Invalid response - Please try again: \n")
 
 
 def choose_difficulty():
@@ -202,7 +202,7 @@ def choose_difficulty():
     elif difficulty == 'QUIT':
         quit_game()
     else:
-        print("\n Invalid response - Please try again: \n")
+        t_print("\n Invalid response - Please try again: \n")
 
 
 def quit_game():
@@ -256,7 +256,7 @@ def t_input(text):
 
 def main():
     """
-    Displays the landing page to the user and explains the rules of the 
+    Displays the landing page to the user and explains the rules of the
     game, and then lets them choose their difficulty or to quit the game
     """
     logo()
