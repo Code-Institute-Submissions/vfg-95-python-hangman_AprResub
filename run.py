@@ -150,9 +150,29 @@ def win_game(cur_game, guess):
     """
     docstring
     """
-    clear_screen()
-    print(tornado_display(cur_game.rem_guess))
-    print(f"{guess} is correct! Well done, You saved the household!")
+    if cur_game.won is True:
+        clear_screen()
+        print(tornado_display(cur_game.rem_guess))
+        print(f"{guess} is correct! Well done, You saved the household!")
+    else:
+        clear_screen()
+        print(tornado_display(cur_game.rem_guess))
+        print("The house is destroyed! You lose.")
+
+    play_again()
+
+
+def play_again():
+    again = typing_input(
+            "\n Would you like to play again? - enter 'N' or 'Y': ").upper()
+    if again == 'N':
+        quit()
+    elif again == 'Y':
+        os.system("clear")
+    elif again == 'QUIT':
+        quit()
+    else:
+        print("\n Invalid response - Please try again: \n")
 
 
 def typing_print(text):
