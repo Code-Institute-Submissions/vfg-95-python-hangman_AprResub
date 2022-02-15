@@ -12,5 +12,7 @@
 ### User Stories
 
 - I want the game to be intuative to understand and play
-- I want to know my score
-- I want to be able to finish the game when I choose
+- I want to be able to continue playing or finish the game when I choose
+- I want the game to be visually appealing with a retro aesthetic
+
+

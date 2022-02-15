@@ -170,6 +170,7 @@ def win_game(cur_game, guess):
         clear_screen()
         print(tornado_display(cur_game.rem_guess))
         print("The house is destroyed! You lose.")
+        print(f"\n The word was {cur_game.cur_word}")
 
     play_again()
 
