@@ -79,15 +79,19 @@ def check_word(cur_game, guess):
     """
     docstring
     """
-    if guess == 'QUIT':
-        quit_game()
-    elif guess == cur_game.cur_word:
-        cur_game.won = True
-        win_game(cur_game, guess)
+    if guess.isalpha():
+        if guess == 'QUIT':
+            quit_game()
+        elif guess == cur_game.cur_word:
+            cur_game.won = True
+            win_game(cur_game, guess)
+        else:
+            cur_game.feedback = 4
+            cur_game.rem_guess -= 1
+            user_feedback(cur_game, guess)
     else:
-        cur_game.feedback = 4
-        cur_game.rem_guess -= 1
-        user_feedback(cur_game, guess)
+        update_display(cur_game)
+        print("\nYour guess needs to be either a word or letter. Try again..")
 
 
 def update_reveal_word(cur_game, guess):
