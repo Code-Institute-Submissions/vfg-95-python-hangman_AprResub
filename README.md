@@ -132,6 +132,14 @@ The next issue was that the f string in the win game function displayed "{guess}
 
 ## Outstanding Bugs
 
-To my knowledge there are no outstadning bugs in the game.
+To my knowledge there are no outstanding bugs in the game.
 
+## Future Development
 
+With the use of the Tornado class which runs the game it allows plenty of scope for future development as you can add further instance variables to the game. 
+
+Potential features to implement: 
+
+- A score feature so when a user carries on playing they can build on their score
+- More word lists so you can have different categories/difficulties for the user to chose
+- More personalisation of the game so the user can input their name and then save their game and come back to it
