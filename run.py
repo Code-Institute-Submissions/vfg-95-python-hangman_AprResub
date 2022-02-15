@@ -29,7 +29,7 @@ def run_game(words):
     main_display(cur_game)
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
-        guess = typing_input("\nEnter your guess - letter or word: ").upper()
+        guess = t_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
             if cur_game.won is True or cur_game.rem_guess == 0:
@@ -159,7 +159,7 @@ def win_game(cur_game, guess):
 
 
 def play_again():
-    again = typing_input(
+    again = t_input(
             "\n Would you like to play again? - enter 'N' or 'Y': ").upper()
     if again == 'N':
         quit_game()
@@ -173,7 +173,7 @@ def play_again():
 
 
 def choose_difficulty():
-    difficulty = typing_input(
+    difficulty = t_input(
         " Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
     if difficulty == 'EASY':
         os.system("clear")
@@ -190,7 +190,7 @@ def choose_difficulty():
 def quit_game():
     clear_screen()
     logo()
-    typing_print("\n Thanks for playing - until next time!")
+    t_print("\n Thanks for playing - until next time!")
     time.sleep(1)
     quit()
 
@@ -207,7 +207,7 @@ def logo():
         """)
 
 
-def typing_print(text):
+def t_print(text):
     """
     This allows text to be displayed with typing effect
     """
@@ -217,7 +217,7 @@ def typing_print(text):
         time.sleep(0.035)
 
 
-def typing_input(text):
+def t_input(text):
     """
     This allows input text to be displayed with typing effect
     """
@@ -235,21 +235,21 @@ def main():
     """
     logo()
 
-    typing_print(""" Welcome to Tornado,
+    t_print(""" Welcome to Tornado,
  do you think you have what it takes to save the household?""")
     time.sleep(0.3)
     print("\n")
-    typing_print(" The rules are very simple: \n")
+    t_print(" The rules are very simple: \n")
     time.sleep(0.3)
-    typing_print("\n- A word is chosen and you must guess the word by inputting letters")
+    t_print("\n- A word is chosen and you must guess the word by inputting letters")
     time.sleep(0.3)
-    typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
+    t_print("\n- If you guess correct, the letter will appear and you can make a new guess")
     time.sleep(0.3)
-    typing_print("\n- If your guess is incorrect you will lose a life")
+    t_print("\n- If your guess is incorrect you will lose a life")
     time.sleep(0.3)
-    typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
+    t_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
     time.sleep(0.3)
-    typing_print("\n- If you wish to quit at any point, enter 'Quit'")
+    t_print("\n- If you wish to quit at any point, enter 'Quit'")
     time.sleep(0.3)
     print("\n")
 
