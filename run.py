@@ -68,9 +68,6 @@ def check_letter(cur_game, guess):
             cur_game.rem_guess -= 1
             cur_game.guessed_letters.append(guess)
             user_feedback(cur_game, guess)
-
-            if cur_game.rem_guess == 0:
-                print("lose game")
     else:
         update_display(cur_game)
         print("\nYour guess needs to be either a word or letter. Try again..")
@@ -81,7 +78,7 @@ def check_word(cur_game, guess):
     docstring
     """
     if guess == 'QUIT':
-        quit()
+        quit_game()
     elif guess == cur_game.cur_word:
         cur_game.won = True
         win_game(cur_game, guess)
@@ -166,12 +163,12 @@ def play_again():
     again = typing_input(
             "\n Would you like to play again? - enter 'N' or 'Y': ").upper()
     if again == 'N':
-        quit()
+        quit_game()
     elif again == 'Y':
         os.system("clear")
         choose_difficulty()
     elif again == 'QUIT':
-        quit()
+        quit_game()
     else:
         print("\n Invalid response - Please try again: \n")
 
@@ -186,9 +183,16 @@ def choose_difficulty():
         os.system("clear")
         run_game(hard_words)
     elif difficulty == 'QUIT':
-        quit()
+        quit_game()
     else:
         print("\n Invalid response - Please try again: \n")
+
+
+def quit_game():
+    clear_screen()
+    typing_print("Thanks for playing - until next time")
+    time.sleep(1)
+    quit()
 
 
 def typing_print(text):
