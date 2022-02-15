@@ -103,7 +103,7 @@ def check_word(cur_game, guess):
 def update_reveal_word(cur_game, guess):
     """
     Checks the users individual letter guesses against the current word
-    and then appends them to the reveal word if they are correct
+    and then joins them to the reveal word if they are correct
     """
     word_ltrs = list(cur_game.reveal_word)
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
