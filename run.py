@@ -27,7 +27,6 @@ def run_game(words):
     """
     cur_game = Tornado(words)
     main_display(cur_game)
-    print(cur_game.cur_word)  # TODO remove line
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
         guess = typing_input("\nEnter your guess - letter or word: ").upper()
@@ -36,7 +35,7 @@ def run_game(words):
             if cur_game.won is True or cur_game.rem_guess == 0:
                 win_game(cur_game, guess)
                 break
-            time.sleep(2)
+            time.sleep(1)
             clear_screen()
             main_display(cur_game)
         elif len(guess) > 1:
@@ -236,23 +235,23 @@ def main():
     """
     logo()
 
-#     typing_print(""" Welcome to Tornado,
-#  do you think you have what it takes to save the household?""")
-#     time.sleep(0.3)
-#     print("\n")
-#     typing_print(" The rules are very simple: \n")
-#     time.sleep(0.3)
-#     typing_print("\n- A word is chosen and you must guess the word by inputting letters")
-#     time.sleep(0.3)
-#     typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
-#     time.sleep(0.3)
-#     typing_print("\n- If your guess is incorrect you will lose a life")
-#     time.sleep(0.3)
-#     typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
-#     time.sleep(0.3)
-#     typing_print("\n- If you wish to quit at any point, enter 'Quit'")
-#     time.sleep(0.3)
-#     print("\n")
+    typing_print(""" Welcome to Tornado,
+ do you think you have what it takes to save the household?""")
+    time.sleep(0.3)
+    print("\n")
+    typing_print(" The rules are very simple: \n")
+    time.sleep(0.3)
+    typing_print("\n- A word is chosen and you must guess the word by inputting letters")
+    time.sleep(0.3)
+    typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
+    time.sleep(0.3)
+    typing_print("\n- If your guess is incorrect you will lose a life")
+    time.sleep(0.3)
+    typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
+    time.sleep(0.3)
+    typing_print("\n- If you wish to quit at any point, enter 'Quit'")
+    time.sleep(0.3)
+    print("\n")
 
     choose_difficulty()
 
