@@ -9,7 +9,7 @@ from words import easy_words, hard_words
 class Tornado:
     """
     Class used to store the information required to play the game
-    by allowing functions to access and use the instance variables
+    with the use of instance variables
     """
     def __init__(self, words):
         self.cur_words = words
@@ -77,7 +77,9 @@ def check_letter(cur_game, guess):
 
 def check_word(cur_game, guess):
     """
-    docstring
+    Checks users guess of a full word and makes sure it is valid, then
+    either ends the game if correct or continues the game with relevant
+    feedback - also allows the user to quit game
     """
     if guess.isalpha():
         if guess == 'QUIT':
@@ -96,7 +98,8 @@ def check_word(cur_game, guess):
 
 def update_reveal_word(cur_game, guess):
     """
-    docstring
+    Checks the users individual letter guesses against the current word
+    and then appends them to the reveal word if they are correct
     """
     word_ltrs = list(cur_game.reveal_word)
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
@@ -107,7 +110,7 @@ def update_reveal_word(cur_game, guess):
 
 def user_feedback(cur_game, guess):
     """
-    docstring
+    Gives the user the relevant feedback to their most recent guess
     """
     if cur_game.feedback == 1:
         update_display(cur_game)
@@ -127,7 +130,8 @@ def user_feedback(cur_game, guess):
 
 def main_display(cur_game):
     """
-    docstring
+    Displays the current state of the game with necessary information
+    for the user to continue playing
     """
     update_display(cur_game)
     print(f"\nAlready guessed: {','.join(cur_game.guessed_letters)}")
@@ -136,7 +140,7 @@ def main_display(cur_game):
 
 def update_display(cur_game):
     """
-    docstring
+    Prints the tornado image and the current state of the reveal word
     """
     print(tornado_display(cur_game.rem_guess))
     print(cur_game.reveal_word)
@@ -144,14 +148,15 @@ def update_display(cur_game):
 
 def clear_screen():
     """
-    docstring
+    Clears the terminal to allow for the updated display of the game
     """
     os.system("clear")
 
 
 def win_game(cur_game, guess):
     """
-    docstring
+    Checks whether the user has won the game or not and displays relevant
+    feedback, then asks if they want to play again
     """
     if cur_game.won is True:
         clear_screen()
@@ -166,6 +171,9 @@ def win_game(cur_game, guess):
 
 
 def play_again():
+    """
+    Enables the user to choose if they want to play another game
+    """
     again = t_input(
             "\n Would you like to play again? - enter 'N' or 'Y': ").upper()
     if again == 'N':
@@ -180,6 +188,9 @@ def play_again():
 
 
 def choose_difficulty():
+    """
+    Enables the user to chose the difficulty of the game
+    """
     difficulty = t_input(
         " Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
     if difficulty == 'EASY':
@@ -195,6 +206,10 @@ def choose_difficulty():
 
 
 def quit_game():
+    """
+    Enables the user to end the game at any point they wish and displays
+    leaving message and logo
+    """
     clear_screen()
     logo()
     t_print("\n Thanks for playing - until next time!")
@@ -203,6 +218,9 @@ def quit_game():
 
 
 def logo():
+    """
+    Displays the main logo for the game
+    """
     print("""
          _______  _______  ______    __    _  _______  ______   _______
         |       ||       ||    _ |  |  |  | ||   _   ||      | |       |
@@ -238,7 +256,8 @@ def t_input(text):
 
 def main():
     """
-    docstring
+    Displays the landing page to the user and explains the rules of the 
+    game, and then lets them choose their difficulty or to quit the game
     """
     logo()
 
