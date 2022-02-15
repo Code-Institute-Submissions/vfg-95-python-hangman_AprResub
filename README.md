@@ -118,6 +118,15 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 - Test that if the user choses not to play again they are taken to the thanks for playing page
 - Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
 
+## Libraries
+
+The game made use of the following libraries:
+
+- random - to allow a word to be chosen at random from the words.py file for the game
+- os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatability with a computer terminal)
+- time - to allow a delay between the update of display to the user, meaning the user has more chance to read feedback
+- sys - to allow the t_print and t_input functions to work properly i.e print text with a typing effect
+
 ## Fixes
 
 I had two issues to fix with my code.
@@ -143,3 +152,4 @@ Potential features to implement:
 - A score feature so when a user carries on playing they can build on their score
 - More word lists so you can have different categories/difficulties for the user to chose
 - More personalisation of the game so the user can input their name and then save their game and come back to it
+
