@@ -1,4 +1,9 @@
-# Hangman Game
+# Tornado Game
+
+## Overview
+
+As the game is played in the terminal/CLI I decided the target audience would be technology/computer enthusiasts 
+(as they will have to have at least some knowledge of this to play the game in the first place) who enjoy guessing games, and computer games in general. I then came up with an alternative theme/imagery to give the game extra interest.
 
 ## Goals
 
@@ -13,6 +18,11 @@
 
 - I want the game to be intuative to understand and play
 - I want to be able to continue playing or finish the game when I choose
-- I want the game to be visually appealing with a retro aesthetic
+- I want the game to be visually appealing
+- I want to know the word after losing
+
+## Game Development
+
+
 
 
