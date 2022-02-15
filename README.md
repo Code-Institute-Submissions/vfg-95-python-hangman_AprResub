@@ -83,6 +83,25 @@ Quit game:
 
 ## Testing
 
+## Validator Testing
+
+The game makes use of three seperate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings.
+
+run:
+
+![codepass](./assets/images/codepass.png)
+
+words:
+
+![listpass](./assets/images/listpass.png)
+
+I fixed all errors for the slides file however there are still warnings which are all due to trailing whitespace in the file.
+This whitespace is required for the tornado and house image to display properly in the terminal. Without the tornado display the game will not work on a visual level for the user plus the file contains no code in regards to the logic of the game, so I decided that I had to leave this as with the warnings:
+
+![slideswarn](./assets/images/slideswarn.png)
+
+### Function Testing
+
 As the game runs in the terminal (or via the Heroku app) there was no need to test on multiple devices/browsers
 as it will run the same on all of them. Testing was done on my MacBook Air and the process references all the features mentioned in the previous functionality section. The process was as follows:
 
@@ -95,7 +114,7 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 - Test that correct word guesses result in win game feedback being displayed to the user and that the play again option is displayed
 - Test that incorrect word guesses result in incorrect word feedback, remaining guesses decreases by 1 and the tornado image moves closer to the house
 - Test that when the user reaches 0 guesses the tornado hits the house and the game ends, the user is told what the correct word was and is asked if they want to play again
-- Test that if the user choses to play again they are taken to the play again page and that the chose difficult input works as expected
+- Test that if the user choses to play again they are taken to the play again page and that the choose difficulty input works as expected
 - Test that if the user choses not to play again they are taken to the thanks for playing page
 - Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
 

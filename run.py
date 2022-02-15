@@ -29,7 +29,7 @@ def run_game(words):
     """
     cur_game = Tornado(words)
     main_display(cur_game)
-    print(cur_game.cur_word) # TODO REMOVE THIS LINE
+    print(cur_game.cur_word)  # TODO REMOVE THIS LINE
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
         guess = t_input("\nEnter your guess - letter or word: ").upper()
