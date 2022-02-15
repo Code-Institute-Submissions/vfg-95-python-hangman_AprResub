@@ -153,3 +153,11 @@ Potential features to implement:
 - More word lists so you can have different categories/difficulties for the user to chose
 - More personalisation of the game so the user can input their name and then save their game and come back to it
 
+## Deployment
+
+- Sign up for an account with Heroku
+- Create a new app whilst logged into Heroku
+- Set buildpacks to 'Python' & 'NodeJS'
+- Link Heroku app to the GitHub respository
+- Deploy to Heroku
+
