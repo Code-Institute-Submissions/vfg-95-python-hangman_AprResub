@@ -75,8 +75,28 @@ Lose game:
 
 Play again:
 
-![playagain](./assets/images/playagin.png)
+![playagain](./assets/images/playagain.png)
 
 Quit game:
 
 ![quitgame](./assets/images/quitgame.png)
+
+## Testing
+
+As the game runs in the terminal (or via the Heroku app) there was no need to test on multiple devices/browsers
+as it will run the same on all of them. Testing was done on my MacBook Air and the process references all the features mentioned in the previous functionality section. The process was as follows:
+
+- Test that the 'home page' displays the logo and rules and difficulty input (with typing effects) properly
+- Test that the user input for difficulty responds as expected; hard = hard words, easy = easy words, quit = quit game
+- Test that the game displays as expected once starting; reveal word is empty, remaining guesses = 5, already guess is empty and the tornado image is at it's intended starting position
+- Test that both word and letter input validation works so that anything which isn't alphabetical will give the user invalid input feedback
+- Test that correct letter guesses result in correct letter feedback & the letter displaying in reveal word and guessed letters
+- Test that incorrect letter guesses result in incorrect letter feedback, remaining guesses decreases by 1, the tornado image moves closer to the house and the letter is added to guessed letters
+- Test that correct word guesses result in win game feedback being displayed to the user and that the play again option is displayed
+- Test that incorrect word guesses result in incorrect word feedback, remaining guesses decreases by 1 and the tornado image moves closer to the house
+- Test that when the user reaches 0 guesses the tornado hits the house and the game ends, the user is told what the correct word was and is asked if they want to play again
+- Test that if the user choses to play again they are taken to the play again page and that the chose difficult input works as expected
+- Test that if the user choses not to play again they are taken to the thanks for playing page
+- Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
+
+
