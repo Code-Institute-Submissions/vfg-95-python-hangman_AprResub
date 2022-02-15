@@ -36,7 +36,6 @@ def run_game(words):
         if len(guess) == 1:
             check_letter(cur_game, guess)
             if cur_game.won is True or cur_game.rem_guess == 0:
-                #win_game(cur_game, guess)
                 break
             time.sleep(1.5)
             clear_screen()
@@ -47,7 +46,6 @@ def run_game(words):
             clear_screen()
             main_display(cur_game)
             if cur_game.won is True or cur_game.rem_guess == 0:
-                #win_game(cur_game, guess)
                 break
 
 
