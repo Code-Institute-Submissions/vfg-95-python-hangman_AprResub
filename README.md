@@ -32,5 +32,3 @@ Due to the nature of the game being command line the first step in the planning 
 
 ![flowchart](./assets/images/flowchart.png)
 
-## Functionality
-
