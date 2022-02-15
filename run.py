@@ -264,27 +264,27 @@ def main():
     """
     logo()
 
-#     t_print(""" Welcome to Tornado,
-#  do you think you have what it takes to save the household?""")
-#     time.sleep(0.3)
-#     print("\n")
-#     t_print(" The rules are very simple: \n")
-#     time.sleep(0.3)
-#     t_print(
-#         "\n- A word is chosen & you must guess the word by inputting letters")
-#     time.sleep(0.3)
-#     t_print(
-#         "\n- If correct, the letter will appear & you can make a new guess")
-#     time.sleep(0.3)
-#     t_print("\n- If your guess is incorrect you will lose a life")
-#     time.sleep(0.3)
-#     t_print("\n- You have 5 lives")
-#     time.sleep(0.3)
-#     t_print("\n- At 0 lives the tornado will destroy the household & you lose")
-#     time.sleep(0.3)
-#     t_print("\n- If you wish to quit at any point, enter 'Quit'")
-#     time.sleep(0.3)
-#     print("\n")
+    t_print(""" Welcome to Tornado,
+ do you think you have what it takes to save the household?""")
+    time.sleep(0.3)
+    print("\n")
+    t_print(" The rules are very simple: \n")
+    time.sleep(0.3)
+    t_print(
+        "\n- A word is chosen & you must guess the word by inputting letters")
+    time.sleep(0.3)
+    t_print(
+        "\n- If correct, the letter will appear & you can make a new guess")
+    time.sleep(0.3)
+    t_print("\n- If your guess is incorrect you will lose a life")
+    time.sleep(0.3)
+    t_print("\n- You have 5 lives")
+    time.sleep(0.3)
+    t_print("\n- At 0 lives the tornado will destroy the household & you lose")
+    time.sleep(0.3)
+    t_print("\n- If you wish to quit at any point, enter 'Quit'")
+    time.sleep(0.3)
+    print("\n")
 
     choose_difficulty()
 
