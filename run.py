@@ -29,13 +29,14 @@ def run_game(words):
     """
     cur_game = Tornado(words)
     main_display(cur_game)
+    print(cur_game.cur_word)
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
         guess = t_input("\nEnter your guess - letter or word: ").upper()
         if len(guess) == 1:
             check_letter(cur_game, guess)
             if cur_game.won is True or cur_game.rem_guess == 0:
-                win_game(cur_game, guess)
+                #win_game(cur_game, guess)
                 break
             time.sleep(1.5)
             clear_screen()
@@ -46,7 +47,7 @@ def run_game(words):
             clear_screen()
             main_display(cur_game)
             if cur_game.won is True or cur_game.rem_guess == 0:
-                win_game(cur_game, guess)
+                #win_game(cur_game, guess)
                 break
 
 
@@ -183,6 +184,7 @@ def play_again():
         quit_game()
     elif again == 'Y':
         os.system("clear")
+        logo()
         choose_difficulty()
     elif again == 'QUIT':
         quit_game()
@@ -264,27 +266,27 @@ def main():
     """
     logo()
 
-    t_print(""" Welcome to Tornado,
- do you think you have what it takes to save the household?""")
-    time.sleep(0.3)
-    print("\n")
-    t_print(" The rules are very simple: \n")
-    time.sleep(0.3)
-    t_print(
-        "\n- A word is chosen & you must guess the word by inputting letters")
-    time.sleep(0.3)
-    t_print(
-        "\n- If correct, the letter will appear & you can make a new guess")
-    time.sleep(0.3)
-    t_print("\n- If your guess is incorrect you will lose a life")
-    time.sleep(0.3)
-    t_print("\n- You have 5 lives")
-    time.sleep(0.3)
-    t_print("\n- At 0 lives the tornado will destroy the household & you lose")
-    time.sleep(0.3)
-    t_print("\n- If you wish to quit at any point, enter 'Quit'")
-    time.sleep(0.3)
-    print("\n")
+#     t_print(""" Welcome to Tornado,
+#  do you think you have what it takes to save the household?""")
+#     time.sleep(0.3)
+#     print("\n")
+#     t_print(" The rules are very simple: \n")
+#     time.sleep(0.3)
+#     t_print(
+#         "\n- A word is chosen & you must guess the word by inputting letters")
+#     time.sleep(0.3)
+#     t_print(
+#         "\n- If correct, the letter will appear & you can make a new guess")
+#     time.sleep(0.3)
+#     t_print("\n- If your guess is incorrect you will lose a life")
+#     time.sleep(0.3)
+#     t_print("\n- You have 5 lives")
+#     time.sleep(0.3)
+#     t_print("\n- At 0 lives the tornado will destroy the household & you lose")
+#     time.sleep(0.3)
+#     t_print("\n- If you wish to quit at any point, enter 'Quit'")
+#     time.sleep(0.3)
+#     print("\n")
 
     choose_difficulty()
 
