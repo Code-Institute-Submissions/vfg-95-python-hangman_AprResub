@@ -9,7 +9,7 @@ from words import easy_words, hard_words
 class Tornado:
     """
     Class used to store the information required to play the game
-    by allowing functions to access and use the instance atttibutes
+    by allowing functions to access and use the instance variables
     """
     def __init__(self, words):
         self.cur_words = words
@@ -23,7 +23,9 @@ class Tornado:
 
 def run_game(words):
     """
-    docstring
+    Starts the game with the default display and with the chosen word
+    difficulty, and runs the while loop which keeps the game running
+    until the user has won or lost
     """
     cur_game = Tornado(words)
     main_display(cur_game)
@@ -47,7 +49,8 @@ def run_game(words):
 
 def check_letter(cur_game, guess):
     """
-    docstring
+    Checks the users guess of an individual letter and makes sure it is
+    valid, then updates the reveal word variable and gives relevant feedback
     """
     if guess.isalpha():
         if guess in cur_game.guessed_letters:
