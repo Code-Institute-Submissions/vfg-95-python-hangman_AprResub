@@ -130,4 +130,8 @@ The next issue was that the f string in the win game function displayed "{guess}
 
 ![wingamefix](./assets/images/wingamefix.png)
 
+## Outstanding Bugs
+
+To my knowledge there are no outstadning bugs in the game.
+
 
