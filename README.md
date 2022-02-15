@@ -118,4 +118,16 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 - Test that if the user choses not to play again they are taken to the thanks for playing page
 - Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
 
+## Fixes
+
+I had two issues to fix with my code.
+
+The first was that in the while loop of the run game function the wingame function would be called properly and displayed to the user, however the while loop would not break and so the game would ask the user to make a guess even though the game had already been won or lost. To fix this I added the following code:
+
+![breakfix](./assets/images/breakfix.png)
+
+The next issue was that the f string in the win game function displayed "{guess} is correct, well done you saved the household!" when the user won - the issue was if the user guess the word letter by letter it would display the winning word as an individual letter. The following code was used to fix this:
+
+![wingamefix](./assets/images/wingamefix.png)
+
 
