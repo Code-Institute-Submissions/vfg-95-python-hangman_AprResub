@@ -190,9 +190,22 @@ def choose_difficulty():
 
 def quit_game():
     clear_screen()
-    typing_print("Thanks for playing - until next time")
+    logo()
+    typing_print("\n Thanks for playing - until next time!")
     time.sleep(1)
     quit()
+
+
+def logo():
+    print("""
+         _______  _______  ______    __    _  _______  ______   _______
+        |       ||       ||    _ |  |  |  | ||   _   ||      | |       |
+        |_     _||   _   ||   | ||  |   |_| ||  |_|  ||  _    ||   _   |
+          |   |  |  | |  ||   |_||_ |       ||       || | |   ||  | |  |
+          |   |  |  |_|  ||    __  ||  _    ||       || |_|   ||  |_|  |
+          |   |  |       ||   |  | || | |   ||   _   ||       ||       |
+          |___|  |_______||___|  |_||_|  |__||__| |__||______| |_______|
+        """)
 
 
 def typing_print(text):
@@ -221,33 +234,26 @@ def main():
     """
     docstring
     """
-    print("""
-         _______  _______  ______    __    _  _______  ______   _______
-        |       ||       ||    _ |  |  |  | ||   _   ||      | |       |
-        |_     _||   _   ||   | ||  |   |_| ||  |_|  ||  _    ||   _   |
-          |   |  |  | |  ||   |_||_ |       ||       || | |   ||  | |  |
-          |   |  |  |_|  ||    __  ||  _    ||       || |_|   ||  |_|  |
-          |   |  |       ||   |  | || | |   ||   _   ||       ||       |
-          |___|  |_______||___|  |_||_|  |__||__| |__||______| |_______|
-        """)
+    logo()
 
-    typing_print(""" Welcome to Tornado,
- do you think you have what it takes to save the household?""")
-    time.sleep(0.3)
-    print("\n")
-    typing_print(" The rules are very simple: \n")
-    time.sleep(0.3)
-    typing_print("\n- A word is chosen and you must guess the word by inputting letters")
-    time.sleep(0.3)
-    typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
-    time.sleep(0.3)
-    typing_print("\n- If your guess is incorrect you will lose a life")
-    time.sleep(0.3)
-    typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
-    time.sleep(0.3)
-    typing_print("\n- If you wish to quit at any point, enter 'Quit'")
-    time.sleep(0.3)
-    print("\n")
+#     typing_print(""" Welcome to Tornado,
+#  do you think you have what it takes to save the household?""")
+#     time.sleep(0.3)
+#     print("\n")
+#     typing_print(" The rules are very simple: \n")
+#     time.sleep(0.3)
+#     typing_print("\n- A word is chosen and you must guess the word by inputting letters")
+#     time.sleep(0.3)
+#     typing_print("\n- If you guess correct, the letter will appear and you can make a new guess")
+#     time.sleep(0.3)
+#     typing_print("\n- If your guess is incorrect you will lose a life")
+#     time.sleep(0.3)
+#     typing_print("\n- You have 5 lives. At 0 the tornado will wipe out the household and you lose")
+#     time.sleep(0.3)
+#     typing_print("\n- If you wish to quit at any point, enter 'Quit'")
+#     time.sleep(0.3)
+#     print("\n")
+
     choose_difficulty()
 
 
