@@ -20,9 +20,17 @@ As the game is played in the terminal/CLI I decided the target audience would be
 - I want to be able to continue playing or finish the game when I choose
 - I want the game to be visually appealing
 - I want to know the word after losing
+- I want to be able to choose the difficulty of the game
 
 ## Game Development
 
+My overall plan for the game was to create a hangman type game with it's own style. Due to the nature of it being played in the terminal this made me think about using a retro, arcade type of aesthetic for the game. I searched for ASCII art and came up with the idea of using a tornado approaching a house, getting closer everytime the user guesses incorrectly. Implementing all this would enable the game to meet all user stories.
 
+### Game Planning
 
+Due to the nature of the game being command line the first step in the planning phase wasn't to wireframe but rather to create a flow chart that would enable me to implement the logic for the game into my python code and take it from there:
+
+![flowchart](./assets/images/flowchart.png)
+
+## Functionality
 

@@ -165,7 +165,8 @@ def win_game(cur_game, guess):
     if cur_game.won is True:
         clear_screen()
         print(tornado_display(cur_game.rem_guess))
-        print(f"{guess} is correct! Well done, You saved the household!")
+        print(f"{cur_game.cur_word} is correct!")
+        print(f"Well done, You saved the household!")
     else:
         clear_screen()
         print(tornado_display(cur_game.rem_guess))
@@ -198,7 +199,7 @@ def choose_difficulty():
     Enables the user to chose the difficulty of the game
     """
     difficulty = t_input(
-        " Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
+        "Choose your difficulty - enter 'Easy' or 'Hard': ").upper()
     if difficulty == 'EASY':
         os.system("clear")
         run_game(easy_words)
