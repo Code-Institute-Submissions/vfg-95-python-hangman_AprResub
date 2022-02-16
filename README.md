@@ -1,5 +1,7 @@
 # Tornado Game
 
+![home](./assets/images/home.png)
+
 ## Overview
 
 As the game is played in the terminal/CLI I decided the target audience would be technology/computer enthusiasts 
@@ -24,7 +26,7 @@ As the game is played in the terminal/CLI I decided the target audience would be
 
 ## Game Development
 
-My overall plan for the game was to create a hangman type game with it's own style. Due to the nature of it being played in the terminal this made me think about using a retro, arcade type of aesthetic for the game. I searched for ASCII art and came up with the idea of using a tornado approaching a house, getting closer every time the user guesses incorrectly. Implementing all this would enable the game to meet all user stories.
+My overall plan for the game was to create a hangman type game with it's own style. Due to the nature of it being played in the terminal this made me think about using a retro, arcade type of aesthetic for the game (to meet the first organisation aim & 3rd user story). I searched for ASCII art and came up with the idea of using a tornado approaching a house, getting closer every time the user guesses incorrectly. Implementing all this would enable the game to meet all user stories.
 
 ### Game Planning
 
