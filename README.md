@@ -49,13 +49,13 @@ My overall plan for the game was to create a hangman type game with it's own sty
 
 ### Game Planning
 
-Due to the nature of the game being command line the first step in the planning phase wasn't to wireframe but rather to create a flow chart that would enable me to implement the logic for the game into my python code and take it from there:
+Due to the nature of the game being command line the first step in the planning phase wasn't to wireframe but rather to create a flow chart that would enable me to implement the logic for the game into my python code and take it from there. The flow chart below was my starting point on which I expanded with further functions and the Tornado class.
 
 ![flowchart](./assets/images/flowchart.png)
 
 ## Functionality
 
-The 'home' page for the game features a retro computer style font displaying the name of the game, then the rules for the game are displayed which make use of a typing effect so that they appear to be typed out to the user (adding to the retro game aesthetic). These are followed by the question asking the user which difficulty they would like to play. These 3 features meet all 3 of the organisation aims and the 1st, 2nd, 3rd & 5th user stories.
+The 'home' page for the game features a retro computer style font displaying the name of the game, then the rules for the game are displayed. The rules make use of a typing effect so that they appear to be typed out to the user (adding to the retro game aesthetic). These are followed by the question asking the user which difficulty they would like to play. These 3 features meet all 3 of the organisation aims and the 1st, 2nd, 3rd & 5th user stories.
 
 ![tornadohome](./assets/images/tornado_home.png)
 
@@ -84,7 +84,7 @@ Incorrect word:
 These features meet the first user story.
 
 The game will then result in either win or lose game, at which point the user is informed what the correct word was if
-they lost which is followed by asking if the user wants to play again - if they choose yes they are taken to the choose difficulty page and if they choose no they are displayed the quit game page. This meets the 2nd, 3rd, 4th & 5th user stories.
+they lost which is followed by asking if the user wants to play again - if they choose yes they are taken to the choose difficulty page and if they choose no they are displayed the quit game page. These meet the 2nd, 3rd, 4th & 5th user stories.
 
 Win game:
 
@@ -116,8 +116,8 @@ words:
 
 ![listpass](./assets/images/listpass.png)
 
-I fixed all errors for the slides file however there are still warnings which are all due to trailing whitespace in the file.
-This whitespace is required for the tornado and house image to display properly in the terminal. Without the tornado display the game will not work on a visual level for the user plus the file contains no code in regards to the logic of the game, so I decided that I had to leave this as with the warnings:
+I fixed all errors for the slides.py file however there are still warnings which are all due to trailing whitespace in the file.
+This whitespace is required for the tornado and house image to display properly in the terminal. Without the tornado display the game will not work on a visual level for the user and the file contains no code in regards to the running/logic of the game, so I decided that I had to leave this as is with the warnings:
 
 ![slideswarn](./assets/images/slideswarn.png)
 
@@ -128,7 +128,7 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 
 - Test that the 'home page' displays the logo and rules and difficulty input (with typing effects) properly
 - Test that the user input for difficulty responds as expected; hard = hard words, easy = easy words, quit = quit game
-- Test that the game displays as expected once starting; reveal word is empty, remaining guesses = 5, already guess is empty and the tornado image is at it's intended starting position
+- Test that the game displays as expected once starting; reveal word is empty, remaining guesses = 5, already guessed is empty and the tornado image is at it's intended starting position
 - Test that both word and letter input validation works so that anything which isn't alphabetical will give the user invalid input feedback
 - Test that correct letter guesses result in correct letter feedback & the letter displaying in reveal word and guessed letters
 - Test that incorrect letter guesses result in incorrect letter feedback, remaining guesses decreases by 1, the tornado image moves closer to the house and the letter is added to guessed letters
@@ -136,8 +136,8 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 - Test that incorrect word guesses result in incorrect word feedback, remaining guesses decreases by 1 and the tornado image moves closer to the house
 - Test that when the user reaches 0 guesses the tornado hits the house and the game ends, the user is told what the correct word was and is asked if they want to play again
 - Test that if the user choses to play again they are taken to the play again page and that the choose difficulty input works as expected
-- Test that if the user choses not to play again they are taken to the thanks for playing page
-- Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
+- Test that if the user choses not to play again they are taken to the quit game page
+- Test that the quit game function works at any point in the game and that the user is displayed the quit game page
 
 ## Fixes
 
@@ -147,7 +147,7 @@ The first was that in the while loop of the run game function the wingame functi
 
 ![breakfix](./assets/images/breakfix.png)
 
-The next issue was that the f string in the win game function displayed "{guess} is correct, well done you saved the household!" when the user won - the issue was if the user guess the word letter by letter it would display the winning word as an individual letter. The following code was used to fix this:
+The next issue was that the f string in the win game function displayed "{guess} is correct, well done you saved the household!" when the user won - the issue was if the user guessed the word letter by letter it would display the winning word as an individual letter. The following code was used to fix this:
 
 ![wingamefix](./assets/images/wingamefix.png)
 
@@ -162,7 +162,7 @@ The game made use of the following libraries:
 - random - to allow a word to be chosen at random from the words.py file for the game
 - os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatibility with a computer terminal)
 - time - to allow a delay between the update of display to the user, meaning the user has more chance to read feedback
-- sys - to allow the t_print and t_input functions to work properly i.e print text with a typing effect
+- sys - to allow the t_print and t_input functions to work properly; print text with a typing effect
 
 ## Future Development
 
@@ -185,9 +185,9 @@ Potential features to implement:
 ## Credits
 
 - The code for the t_print and t_input functions for the games text typing effect were from [101computing.net](https://www.101computing.net/python-typing-text-effect/)
-- The code for the update_reveal_word function, along with general inspiration was taken from the YouTube video from [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=434s)
+- The code for the update_reveal_word function, along with general inspiration was taken from the YouTube video by [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=434s)
 
 ## Media
 
--  The tornado displays were taken from [ASCII.co.uk](https://ascii.co.uk)
--  The game logo was made using [PATORJK](https://patorjk.com) 
+-  The tornado displays were taken from [ascii.co.uk](https://ascii.co.uk)
+-  The game logo was made using [patorjk.com](https://patorjk.com) 
