@@ -98,6 +98,7 @@ def update_reveal_word(cur_game, guess):
     """
     Checks the users individual letter guesses against the current word
     and then joins them to the reveal word if they are correct
+    This code is credited in the README
     """
     word_ltrs = list(cur_game.reveal_word)
     indices = [i for i, ltr in enumerate(cur_game.cur_word) if ltr == guess]
@@ -237,6 +238,7 @@ def logo():
 def t_print(text):
     """
     This allows print text to be displayed with typing effect
+    This code is credited in the README
     """
     for character in text:
         sys.stdout.write(character)
@@ -247,6 +249,7 @@ def t_print(text):
 def t_input(text):
     """
     This allows input text to be displayed with typing effect
+    This code is credited in the README
     """
     for character in text:
         sys.stdout.write(character)
