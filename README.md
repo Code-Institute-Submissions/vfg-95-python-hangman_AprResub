@@ -164,4 +164,9 @@ Potential features to implement:
 ## Credits
 
 - The code for the t_print and t_input functions for the games text typing effect were from [101computing.net](https://www.101computing.net/python-typing-text-effect/)
-- 
+- The code for the update_reveal_word function, along with general inspiration was taken from the YouTube video from [Kite](https://www.youtube.com/watch?v=m4nEnsavl6w&t=434s)
+
+## Media
+
+-  The tornado displays were taken from [ASCII.co.uk](https://ascii.co.uk)
+-  The game logo was made using [PATORJK](https://patorjk.com) 
