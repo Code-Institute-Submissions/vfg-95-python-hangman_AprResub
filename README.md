@@ -7,6 +7,25 @@
 As the game is played in the terminal/CLI I decided the target audience would be technology/computer enthusiasts 
 (as they will have to have at least some knowledge of this to play the game in the first place) who enjoy guessing games, and computer games in general. I then came up with an alternative theme/imagery to give the game extra interest.
 
+## Table of Contents
+
+1. [Goals](#goals)
+    1. [Organisation Aims](#organisation-aims)
+    2. [User Stories](#user-stories)
+2. [Game Development](#game-development)
+    1. [Game Planning](#game-planning)
+3. [Functionality](#functionality)
+4. [Testing](#testing)
+    1. [Validator Testing](#validator-testing)
+    2. [Function Testing](#function-testing)
+5. [Fixes](#fixes)
+6. [Outstanding Bugs](#oustanding-bugs)
+7. [Libraries](#libraries)
+8. [Future Development](#future-development)
+9. [Deployment](#deployment)
+10. [Credits](#credits)
+11. [Media](#media)
+
 ## Goals
 
 ### Organisation Aims
@@ -85,7 +104,7 @@ Quit game:
 
 ## Testing
 
-## Validator Testing
+### Validator Testing
 
 The game makes use of three separate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings.
 
@@ -120,15 +139,6 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 - Test that if the user choses not to play again they are taken to the thanks for playing page
 - Test that the quit game function works at any point in the game and that the user is displayed the thanks for playing page
 
-## Libraries
-
-The game made use of the following libraries:
-
-- random - to allow a word to be chosen at random from the words.py file for the game
-- os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatibility with a computer terminal)
-- time - to allow a delay between the update of display to the user, meaning the user has more chance to read feedback
-- sys - to allow the t_print and t_input functions to work properly i.e print text with a typing effect
-
 ## Fixes
 
 I had two issues to fix with my code.
@@ -144,6 +154,15 @@ The next issue was that the f string in the win game function displayed "{guess}
 ## Outstanding Bugs
 
 To my knowledge there are no outstanding bugs in the game.
+
+## Libraries
+
+The game made use of the following libraries:
+
+- random - to allow a word to be chosen at random from the words.py file for the game
+- os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatibility with a computer terminal)
+- time - to allow a delay between the update of display to the user, meaning the user has more chance to read feedback
+- sys - to allow the t_print and t_input functions to work properly i.e print text with a typing effect
 
 ## Future Development
 
