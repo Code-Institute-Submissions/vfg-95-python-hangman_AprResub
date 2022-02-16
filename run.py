@@ -57,8 +57,8 @@ def validate(cur_game, guess):
 
 def check_letter(cur_game, guess):
     """
-    Checks the users guess of an individual letter and makes sure it is
-    valid, then updates the reveal word variable and gives relevant feedback
+    Checks the users guess of an individual letter then updates the reveal
+    word variable and gives relevant feedback
     """
     if guess in cur_game.guessed_letters:
         cur_game.feedback = 1
@@ -80,9 +80,9 @@ def check_letter(cur_game, guess):
 
 def check_word(cur_game, guess):
     """
-    Checks users guess of a full word and makes sure it is valid, then
-    either ends the game if correct or continues the game with relevant
-    feedback - also allows the user to quit game
+    Checks users guess of a full word and then either ends the game if
+    correct or continues the game with relevant feedback - also allows
+    the user to quit game
     """
     if guess == 'QUIT':
         quit_game()
@@ -108,7 +108,8 @@ def update_reveal_word(cur_game, guess):
 
 def user_feedback(cur_game, guess):
     """
-    Gives the user the relevant feedback to their most recent guess
+    Chooses the relevant feedback to be displayed to the user after
+    their most recent guess
     """
     if cur_game.feedback == 1:
         update_display(cur_game)
