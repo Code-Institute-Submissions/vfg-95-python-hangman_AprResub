@@ -2,6 +2,8 @@
 
 ![home](./assets/images/home.png)
 
+Live link: https://python-hangman1.herokuapp.com/
+
 ## Overview
 
 As the game is played in the terminal/CLI I decided the target audience would be technology/computer enthusiasts 
@@ -181,6 +183,8 @@ Potential features to implement:
 - Set buildpacks to 'Python' & 'NodeJS'
 - Link Heroku app to the GitHub repository
 - Deploy to Heroku
+
+Live link: https://python-hangman1.herokuapp.com/
 
 ## Credits
 
