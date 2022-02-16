@@ -161,3 +161,7 @@ Potential features to implement:
 - Link Heroku app to the GitHub respository
 - Deploy to Heroku
 
+## Credits
+
+- The code for the t_print and t_input functions for the games text typing effect were from [101computing.net](https://www.101computing.net/python-typing-text-effect/)
+- 
