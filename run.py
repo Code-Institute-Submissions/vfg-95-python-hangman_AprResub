@@ -67,7 +67,6 @@ def check_letter(cur_game, guess):
             user_feedback(cur_game, guess)
             if cur_game.reveal_word == cur_game.cur_word:
                 cur_game.won = True
-                win_game(cur_game, guess)
         else:
             cur_game.feedback = 2
             cur_game.rem_guess -= 1
@@ -89,7 +88,6 @@ def check_word(cur_game, guess):
             quit_game()
         elif guess == cur_game.cur_word:
             cur_game.won = True
-            win_game(cur_game, guess)
         else:
             cur_game.feedback = 4
             cur_game.rem_guess -= 1
