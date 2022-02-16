@@ -108,7 +108,7 @@ Quit game:
 
 ### Validator Testing
 
-The game makes use of three separate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings.
+The game makes use of three separate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings (the run.py file pushed to the GitHub repository does not display the new line at the end of the file, for this reason it may show an a warning in regards to no new line however I have implemented this in my code on GitPod)
 
 run:
 
