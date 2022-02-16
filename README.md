@@ -5,7 +5,7 @@
 ## Overview
 
 As the game is played in the terminal/CLI I decided the target audience would be technology/computer enthusiasts 
-(as they will have to have at least some knowledge of this to play the game in the first place) who enjoy guessing games, and computer games in general. I then came up with an alternative theme/imagery to give the game extra interest.
+(as they will have to have at least some knowledge of this to play the game in the first place) who enjoy guessing games, and computer games in general. The game itself is based on the game Hangman, but I came up with an alternative theme/imagery to give the game extra interest.
 
 ## Table of Contents
 
