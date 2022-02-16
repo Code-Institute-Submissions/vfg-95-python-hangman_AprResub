@@ -12,7 +12,6 @@ class Tornado:
     with the use of instance variables
     """
     def __init__(self, words):
-        self.cur_words = words
         self.cur_word = random.choice(words).upper()
         self.reveal_word = "_" * len(self.cur_word)
         self.rem_guess = 5
