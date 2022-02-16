@@ -10,13 +10,13 @@ As the game is played in the terminal/CLI I decided the target audience would be
 ### Organisation Aims
 
 -   Create a variation on the traditional hangman game using a different theme & imagery
--   Make the the game easy to play and rules unambigious
+-   Make the the game easy to play and rules unambiguous
 -   Allow the user to chose the difficulty of the words used in the game
 
 
 ### User Stories
 
-- I want the game to be intuative to understand and play
+- I want the game to be intuitive to understand and play
 - I want to be able to continue playing or finish the game when I choose
 - I want the game to be visually appealing
 - I want to know the word after losing
@@ -24,7 +24,7 @@ As the game is played in the terminal/CLI I decided the target audience would be
 
 ## Game Development
 
-My overall plan for the game was to create a hangman type game with it's own style. Due to the nature of it being played in the terminal this made me think about using a retro, arcade type of aesthetic for the game. I searched for ASCII art and came up with the idea of using a tornado approaching a house, getting closer everytime the user guesses incorrectly. Implementing all this would enable the game to meet all user stories.
+My overall plan for the game was to create a hangman type game with it's own style. Due to the nature of it being played in the terminal this made me think about using a retro, arcade type of aesthetic for the game. I searched for ASCII art and came up with the idea of using a tornado approaching a house, getting closer every time the user guesses incorrectly. Implementing all this would enable the game to meet all user stories.
 
 ### Game Planning
 
@@ -85,7 +85,7 @@ Quit game:
 
 ## Validator Testing
 
-The game makes use of three seperate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings.
+The game makes use of three separate files, run.py, slides.py and words.py. The run.py and words.py files both pass without any errors or warnings.
 
 run:
 
@@ -123,7 +123,7 @@ as it will run the same on all of them. Testing was done on my MacBook Air and t
 The game made use of the following libraries:
 
 - random - to allow a word to be chosen at random from the words.py file for the game
-- os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatability with a computer terminal)
+- os - to allow the terminal to clear when called (as this is specific to the operating system terminal I do not believe it works as intended in the Heroku app however I decided to leave it in for compatibility with a computer terminal)
 - time - to allow a delay between the update of display to the user, meaning the user has more chance to read feedback
 - sys - to allow the t_print and t_input functions to work properly i.e print text with a typing effect
 
@@ -158,7 +158,7 @@ Potential features to implement:
 - Sign up for an account with Heroku
 - Create a new app whilst logged into Heroku
 - Set buildpacks to 'Python' & 'NodeJS'
-- Link Heroku app to the GitHub respository
+- Link Heroku app to the GitHub repository
 - Deploy to Heroku
 
 ## Credits
