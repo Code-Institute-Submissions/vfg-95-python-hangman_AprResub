@@ -41,12 +41,13 @@ def run_game(words):
             main_display(cur_game)
         elif len(guess) > 1:
             check_word(cur_game, guess)
-            time.sleep(1.5)
-            clear_screen()
-            main_display(cur_game)
             if cur_game.won is True or cur_game.rem_guess == 0:
                 win_game(cur_game, guess)
                 break
+            time.sleep(1.5)
+            clear_screen()
+            main_display(cur_game)
+
 
 
 def check_letter(cur_game, guess):
