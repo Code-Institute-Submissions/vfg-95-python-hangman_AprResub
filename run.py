@@ -31,23 +31,28 @@ def run_game(words):
 
     while cur_game.rem_guess > 0 or cur_game.won is False:
         guess = t_input("\nEnter your guess - letter or word: ").upper()
+        validate(cur_game, guess)
+        if cur_game.won is True or cur_game.rem_guess == 0:
+            win_game(cur_game, guess)
+            break
+        time.sleep(1.5)
+        clear_screen()
+        main_display(cur_game)
+
+
+def validate(cur_game, guess):
+    """
+    Validates the users input and then calls the correct function
+    for a single letter or word guess
+    """
+    if guess.isalpha():
         if len(guess) == 1:
             check_letter(cur_game, guess)
-            if cur_game.won is True or cur_game.rem_guess == 0:
-                win_game(cur_game, guess)
-                break
-            time.sleep(1.5)
-            clear_screen()
-            main_display(cur_game)
-        elif len(guess) > 1:
+        else:
             check_word(cur_game, guess)
-            if cur_game.won is True or cur_game.rem_guess == 0:
-                win_game(cur_game, guess)
-                break
-            time.sleep(1.5)
-            clear_screen()
-            main_display(cur_game)
-
+    else:
+        update_display(cur_game)
+        t_print("\nYour guess needs to be a word or letter. Try again..")
 
 
 def check_letter(cur_game, guess):
@@ -55,26 +60,22 @@ def check_letter(cur_game, guess):
     Checks the users guess of an individual letter and makes sure it is
     valid, then updates the reveal word variable and gives relevant feedback
     """
-    if guess.isalpha():
-        if guess in cur_game.guessed_letters:
-            cur_game.feedback = 1
-            clear_screen()
-            user_feedback(cur_game, guess)
-        elif guess in cur_game.cur_word:
-            cur_game.feedback = 3
-            cur_game.guessed_letters.append(guess)
-            update_reveal_word(cur_game, guess)
-            user_feedback(cur_game, guess)
-            if cur_game.reveal_word == cur_game.cur_word:
-                cur_game.won = True
-        else:
-            cur_game.feedback = 2
-            cur_game.rem_guess -= 1
-            cur_game.guessed_letters.append(guess)
-            user_feedback(cur_game, guess)
+    if guess in cur_game.guessed_letters:
+        cur_game.feedback = 1
+        clear_screen()
+        user_feedback(cur_game, guess)
+    elif guess in cur_game.cur_word:
+        cur_game.feedback = 3
+        cur_game.guessed_letters.append(guess)
+        update_reveal_word(cur_game, guess)
+        user_feedback(cur_game, guess)
+        if cur_game.reveal_word == cur_game.cur_word:
+            cur_game.won = True
     else:
-        update_display(cur_game)
-        t_print("\nYour guess needs to be a word or letter. Try again..")
+        cur_game.feedback = 2
+        cur_game.rem_guess -= 1
+        cur_game.guessed_letters.append(guess)
+        user_feedback(cur_game, guess)
 
 
 def check_word(cur_game, guess):
@@ -83,18 +84,14 @@ def check_word(cur_game, guess):
     either ends the game if correct or continues the game with relevant
     feedback - also allows the user to quit game
     """
-    if guess.isalpha():
-        if guess == 'QUIT':
-            quit_game()
-        elif guess == cur_game.cur_word:
-            cur_game.won = True
-        else:
-            cur_game.feedback = 4
-            cur_game.rem_guess -= 1
-            user_feedback(cur_game, guess)
+    if guess == 'QUIT':
+        quit_game()
+    elif guess == cur_game.cur_word:
+        cur_game.won = True
     else:
-        update_display(cur_game)
-        t_print("\nYour guess needs to be a word or letter. Try again..")
+        cur_game.feedback = 4
+        cur_game.rem_guess -= 1
+        user_feedback(cur_game, guess)
 
 
 def update_reveal_word(cur_game, guess):
@@ -238,7 +235,7 @@ def logo():
 
 def t_print(text):
     """
-    This allows text to be displayed with typing effect
+    This allows print text to be displayed with typing effect
     """
     for character in text:
         sys.stdout.write(character)
