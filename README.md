@@ -19,7 +19,7 @@ As the game is played in the terminal/CLI I decided the target audience would be
     1. [Validator Testing](#validator-testing)
     2. [Function Testing](#function-testing)
 5. [Fixes](#fixes)
-6. [Outstanding Bugs](#oustanding-bugs)
+6. [Outstanding Bugs](#outstanding-bugs)
 7. [Libraries](#libraries)
 8. [Future Development](#future-development)
 9. [Deployment](#deployment)
