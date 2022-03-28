@@ -205,7 +205,10 @@ def choose_difficulty():
     elif difficulty == 'QUIT':
         quit_game()
     else:
-        t_print("\n Invalid response - Please try again: \n")
+        t_print("\n Invalid response - Please try again!: \n")
+        time.sleep(0.5)
+        choose_difficulty()
+
 
 
 def quit_game():
