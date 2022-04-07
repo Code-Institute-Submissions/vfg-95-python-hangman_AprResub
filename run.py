@@ -188,6 +188,7 @@ def play_again():
         quit_game()
     else:
         t_print("\n Invalid response - Please try again: \n")
+        choose_difficulty()
 
 
 def choose_difficulty():
