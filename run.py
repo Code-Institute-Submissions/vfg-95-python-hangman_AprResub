@@ -187,6 +187,8 @@ def play_again():
     elif again == 'QUIT':
         quit_game()
     else:
+        os.system("clear")
+        logo()
         t_print("\n Invalid response - Please try again: \n")
         choose_difficulty()
 
