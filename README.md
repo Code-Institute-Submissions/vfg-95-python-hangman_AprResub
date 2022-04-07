@@ -153,7 +153,7 @@ The next issue was that the f string in the win game function displayed "{guess}
 
 ![wingamefix](./assets/images/wingamefix.png)
 
-*EDIT - After failing the assignemnt I realised that invalid data had not been handled when a user tries to choose their difficulty & when they play the game again. This was fixed by calling the choose difficulty function on lines 193 & 213 of the run.py file.*
+*EDIT - After failing the assignment I realised that invalid data had not been handled when a user tries to choose their difficulty & when they play the game again. This was fixed by calling the choose difficulty function on lines 193 & 213 of the run.py file.*
 
 ## Outstanding Bugs
 
