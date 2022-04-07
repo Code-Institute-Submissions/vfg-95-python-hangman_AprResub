@@ -162,7 +162,7 @@ def win_game(cur_game, guess):
         clear_screen()
         print(tornado_display(cur_game.rem_guess))
         print(f"{cur_game.cur_word} is correct!")
-        print(f"Well done, You saved the household!")
+        print("Well done, You saved the household!")
     else:
         clear_screen()
         print(tornado_display(cur_game.rem_guess))
@@ -211,7 +211,6 @@ def choose_difficulty():
         t_print("\nInvalid response - Please try again! \n")
         time.sleep(1)
         choose_difficulty()
-
 
 
 def quit_game():
